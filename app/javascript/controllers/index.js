@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import FormatPhoneNumberController from "./format_phone_number_controller"
+application.register("format-phone-number", FormatPhoneNumberController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
