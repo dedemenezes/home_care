@@ -5,7 +5,7 @@
 <main class="container d-flex mh-100 flex-column align-items-center justify-content-center">
   <h1>WELCOME TO <span class="border-bottom border-primary border-2">HOME CARE</span></h1>
 
-  <%= form_with for: :phone, url: login_phone_messages_path, html: { class: 'w-100', data: { controller: 'format-phone-number' } } do |f| %>
+  <%= form_with for: :phone, url: create_login_path, html: { class: 'w-100', data: { controller: 'format-phone-number' } } do |f| %>
     <div class="form-group-mine border border-primary rounded-top-mine bg-white">
       <%= label_tag 'country', 'COUNTRY/REGION', class: 'w-100 px-4 py-2' %>
       <%= select_tag 'country',
