@@ -1,5 +1,12 @@
+#froze_string_literal: true
+
+# Service to interact with Twilio API
 module Twilio
+  # SPECIFIC FOR SMS INTERACTIONS
   class SMS
+    # inializing without twilio_sid wil create a new service
+    # ideally the new service.pid will be assigned to session[:twilio_sid]
+    # to be passed on next twilio interaction. GOAL: Use always the same service ;)
     def initialize(twilio_sid = nil)
       @twilio_sid = twilio_sid
       @client = Twilio::REST::Client.new(
@@ -9,7 +16,7 @@ module Twilio
       set_service
     end
 
-
+    # use this to assign service.sid to user session
     def set_service
       existing_service || new_service
       @service.sid
@@ -21,15 +28,14 @@ module Twilio
                             .services(@service.sid)
                             .verifications
                             .create(to: phone, channel: 'sms')
-      puts verification.status
     end
 
     def verification_check(phone, code)
       @client.verify
-            .v2
-            .services(@service.sid)
-            .verification_checks
-            .create(to: phone, code: code)
+             .v2
+             .services(@service.sid)
+             .verification_checks
+             .create(to: phone, code: code)
     end
 
     private
@@ -43,7 +49,7 @@ module Twilio
 
     def new_service
       @service = @client.verify.v2.services.create(
-        friendly_name: 'My First Verify Service'
+        friendly_name: 'SMSTrial@dedevLab'
       )
     end
   end
