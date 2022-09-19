@@ -23,3 +23,12 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$border-color: $pansy-purple;
+
+.form-control {
+  border: 1px solid $pansy-purple !important;
+}
+
+.form-control:focus {
+  border: 1px solid $light-gray  !important;
+}

@@ -16,7 +16,6 @@ auth_token='8e9294a637961a527b96879589990570'
 
 # puts message.sid
 
-binding.pry
 
 ## VERIFICATION SERVICE
 
