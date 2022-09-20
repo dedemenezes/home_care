@@ -25,6 +25,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_18_211554) do
     t.string "phone_number"
     t.string "country"
     t.string "role"
+    t.string "image_url"
+    t.string "state"
+    t.string "city"
+    t.string "street"
+    t.string "street_number"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
