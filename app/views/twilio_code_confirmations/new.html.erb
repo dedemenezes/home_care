@@ -3,26 +3,21 @@
     <h1>Verify mobile number</h1>
     <p>OTP has been sent to you on your mobile number. Please enter it below.</p>
   </div>
-  <%= form_with url: confirm_sms_path, method: :post, html: { class: "row gx-2 px-3" } do %>
-    <div class="col-2">
-      <%= text_field 'first', 'first', style: 'font-size: 2rem', class: 'w-100 text-center border border-primary rounded-mine border-1' %>
-    </div>
-    <div class="col-2">
-      <%= text_field 'second', 'second', style: 'font-size: 2rem', class: 'w-100 text-center border border-primary rounded-mine border-1' %>
-    </div>
-    <div class="col-2">
-      <%= text_field 'third', 'third', style: 'font-size: 2rem', class: 'w-100 text-center border border-primary rounded-mine border-1' %>
-    </div>
-    <div class="col-2">
-      <%= text_field 'fourth', 'fourth', style: 'font-size: 2rem', class: 'w-100 text-center border border-primary rounded-mine border-1' %>
-    </div>
-    <div class="col-2">
-      <%= text_field 'fifth', 'fifth', style: 'font-size: 2rem', class: 'w-100 text-center border border-primary rounded-mine border-1' %>
-    </div>
-    <div class="col-2">
-      <%= text_field 'sixth', 'sixth', style: 'font-size: 2rem', class: 'w-100 text-center border border-primary rounded-mine border-1' %>
-    </div>
-    <%= hidden_field :phone_number, session[:user_phone_number] %>
-    <%= submit_tag 'Confirm', class: 'btn btn-lg btn-primary rounded-pill w-100 mt-3' %>
+  <%= form_with url: confirm_sms_path, method: :post, html: { class: "row gx-2 px-3", data: { controller: 'form' } } do %>
+  <%= hidden_field :phone_number, session[:user_phone_number] %>
+    <% ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'].each do |number| %>
+      <div class="col-2">
+        <%= text_field 'confirmation_code',
+                      number,
+                      style: 'font-size: 2rem',
+                      class: 'w-100 text-center border border-primary rounded-mine border-1',
+                      maxlength: 1,
+                      data: {
+                        action: 'keyup->form#nextInput'
+                      } %>
+
+      </div>
+    <% end %>
+    <%= submit_tag 'Confirm', data: {form_target: 'submit' }, class: 'btn btn-lg btn-primary rounded-pill w-100 mt-3' %>
   <% end %>
 </div>
