@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
+  before_action :set_locale
   before_action :authenticate_user!
   before_action :set_twilio_sid_to_session
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -10,11 +11,24 @@ class ApplicationController < ActionController::Base
 
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def set_locale
+    if user_signed_in?
+      I18n.locale = current_user.language
+    else
+
+    end
+    I18n.locale = params[:lang] || locale_from_header || I18n.default_locale
+  end
+
+  def locale_from_header
+    request.env("HTTP_ACCEPT_LANGUAGE", "").scan(/[a-z]{2}/).first
+  end
+
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :phone_number, :state, :country, :city, :street, :street_number, :first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :phone_number, :state, :country, :city, :street, :street_number, :first_name, :last_name, :language])
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:phone_number, :state, :country, :city, :street, :street_number, :first_name, :last_name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:phone_number, :state, :country, :city, :street, :street_number, :first_name, :last_name, :language])
   end
 
   def after_sign_up_path_for(resource)
