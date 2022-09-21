@@ -53,6 +53,8 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 
+gem 'pundit'
+
 # TWILIO
 gem 'twilio-ruby', '~> 5.72'
 group :development, :test do

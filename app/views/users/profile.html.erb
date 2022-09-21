@@ -45,14 +45,16 @@
       <div class="row justify-content-center">
         <div class="col-12 col-sm-8 col-md-6 col-lg-4">
           <div class="profile__action">
-            <div class="row">
-              <div class="col-10">
-                <%= link_to "Edit profile", edit_user_registration_path, class: 'link-mine' %>
+            <%= link_to edit_user_registration_path, class: 'link-mine' do %>
+              <div class="row">
+                <div class="col-10">
+                  Edit profile
+                </div>
+                <div class="col-2">
+                  <%= icon 'fa-solid', 'chevron-right', class: 'icon--hover' %>
+                </div>
               </div>
-              <div class="col-2">
-                <%= icon 'fa-solid', 'chevron-right', class: 'icon--hover' %>
-              </div>
-            </div>
+            <% end %>
             <div class="row">
               <div class="col-10">
               </div>

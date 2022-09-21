@@ -23,11 +23,11 @@ module Twilio
     end
 
     def send_sms(phone)
-      verification = @client.verify
-                            .v2
-                            .services(@service.sid)
-                            .verifications
-                            .create(to: phone, channel: 'sms')
+      @client.verify
+             .v2
+             .services(@service.sid)
+             .verifications
+             .create(to: phone, channel: 'sms')
     end
 
     def verification_check(phone, code)

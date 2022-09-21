@@ -20,3 +20,12 @@ a.link-mine {
     color: $primary;
   }
 }
+
+.link-mine.link-mine--primary {
+  color: $primary;
+  font-weight: 400;
+  opacity: .8;
+  &:hover {
+    opacity: 1;
+  }
+}
