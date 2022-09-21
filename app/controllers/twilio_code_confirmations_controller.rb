@@ -1,7 +1,6 @@
 class TwilioCodeConfirmationsController < ApplicationController
   skip_before_action :authenticate_user!
   def new
-    binding.pry
     unless session[:verification_status].present?
       flash[:alert] = 'Must provide phone number.'
       redirect_to login_path
