@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+      <h2><%= t('edit').capitalize %> <%= t('account') %><%#= resource_name.to_s.humanize %></h2>
     </div>
   </div>
   <div class="row">
@@ -21,7 +21,11 @@
           <%= f.input :email, required: true, autofocus: true %>
           <div class="row">
             <div class="col-12 col-sm-9 col-lg-9">
-              <%= f.input :street, required: true, autofocus: true %>
+              <%= f.input :street,
+                          input_html: {data: {address_autocomplete_target: "street"}, class: "d-none"},
+                          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+                        %>
+              <%#= f.input :street, required: true, autofocus: true %>
             </div>
             <div class="col-4 col-sm-3 col-lg-3">
               <%= f.input :street_number, label: 'Number', required: true, autofocus: true %>

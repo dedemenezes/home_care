@@ -34,3 +34,45 @@ en:
     home:
       cta: 'Start'
   sign_up: 'Sign up'
+  doctors: 'doctors'
+  edit: 'edit'
+  profile: 'profile'
+  find_carer: 'find carer'
+  find_carers: 'find carers'
+  home: 'Home'
+  messages: 'Messages'
+  log_out: 'Log out'
+  yes_sir: 'Yes'
+  no_sir: 'No'
+  available: 'Available'
+  home_care: 'Home Care'
+  account: 'account'
+  simple_form:
+    labels:
+      user:
+        first_name: 'First name'
+        last_name: 'Last name'
+        street: 'Street'
+        street_number: 'Number'
+        city: 'City'
+        state: 'State'
+        country: 'Country'
+        phone_number: 'Phone Number'
+        image_url: 'Image URL'
+        username: 'User name'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        current_password: 'Current password'
+    hints:
+      user:
+        username: 'User name to sign in.'
+        password: 'No special characters, please.'
+    placeholders:
+      user:
+        username: 'Your username'
+        password: '****'
+  helpers:
+    submit:
+      user:
+        create: "Add %{model}"
+        update: "Save Changes"

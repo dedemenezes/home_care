@@ -7,12 +7,12 @@
     <div class="card__user__info">
       <div class="doc__infos">
         <div class="doctor__info">
-          <p>Available</p>
-          <p><strong><%= doctor.available? ? 'YES' : 'NO' %></strong></p>
+          <p><%= t('available') %></p>
+          <p><strong><%= t(doctor.available? ? 'yes_sir' : 'no_sir') %></strong></p>
         </div>
         <div class="doctor__info">
-          <p>Home Care</p>
-          <p><strong><%= doctor.home_care? ? 'YES' : 'NO' %></strong></p>
+          <p><%= t('home_care') %></p>
+          <p><strong><%= t(doctor.home_care? ? 'yes_sir' : 'no_sir') %></strong></p>
         </div>
       </div>
       <div class="" style='padding: 0; font-size: 2rem;'>

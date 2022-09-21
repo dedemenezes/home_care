@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   geocoded_by :address
+  before_save :set_default_image_url
   after_validation :geocode, if: :will_save_change_to_city?
   after_validation :geocode, if: :will_save_change_to_street?
   after_validation :geocode, if: :will_save_change_to_street_number?
@@ -25,5 +26,9 @@ class User < ApplicationRecord
 
   def address
     [country, state, city].compact.join(', ')
+  end
+
+  def set_default_image_url
+    self.image_url = 'https://www.marketingmuses.com/wp-content/uploads/2018/01/invis-user.png' if image_url.nil?
   end
 end

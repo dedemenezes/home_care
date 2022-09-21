@@ -7,7 +7,7 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log(this.markerValue);
+    window.scrollTo(0, this.element.scrollHeight)
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({

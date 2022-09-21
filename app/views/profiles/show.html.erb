@@ -11,7 +11,7 @@
             <%= link_to edit_user_registration_path, class: 'link-mine' do %>
               <div class="row">
                 <div class="col-10">
-                  Edit profile
+                  <%= t('edit').capitalize %> <%= t('profile') %>
                 </div>
                 <div class="col-2">
                   <%= icon 'fa-solid', 'chevron-right', class: 'icon--hover' %>
@@ -27,7 +27,7 @@
             <%= link_to doctors_path, class: 'link-mine' do %>
               <div class="row">
                 <div class="col-10">
-                  Find carers
+                  <%= t('find_carers').capitalize %>
                 </div>
                 <div class="col-2">
                   <%= icon 'fa-solid', 'chevron-right', class: 'icon--hover' %>

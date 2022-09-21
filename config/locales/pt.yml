@@ -4,3 +4,45 @@ pt:
     home:
       cta: 'Começar'
   sign_up: 'Registrar'
+  doctors: 'doutores'
+  edit: 'editar'
+  profile: 'perfil'
+  find_carer: 'buscar cuidador'
+  find_carers: 'buscar cuidadores'
+  home: 'Página inicial'
+  messages: 'Mensagens'
+  log_out: 'Sair'
+  yes_sir: 'Sim'
+  no_sir: 'Não'
+  available: 'Disponível'
+  home_care: 'Em Domicílio'
+  account: 'conta'
+  simple_form:
+    labels:
+      user:
+        first_name: 'Nome'
+        last_name: 'Sobrenome'
+        street: 'Rua/Avenida'
+        street_number: 'Number'
+        city: 'Cidade'
+        state: 'Estadp'
+        country: 'País'
+        phone_number: 'Telefone'
+        image_url: 'Imagem URL'
+        username: 'User name'
+        password: 'Senha'
+        password_confirmation: 'Confirmação de senha'
+        current_password: 'Senha atual'
+    hints:
+      user:
+        username: 'User name to sign in.'
+        password: 'No special characters, please.'
+    placeholders:
+      user:
+        username: 'Your username'
+        password: '****'
+  helpers:
+    submit:
+      user:
+        create: "Add %{model}"
+        update: "Save Changes"
