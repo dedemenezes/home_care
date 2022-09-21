@@ -1,2 +1,6 @@
 pt:
   welcome: 'Bem vindo ao'
+  pages:
+    home:
+      cta: 'Começar'
+  sign_up: 'Registrar'

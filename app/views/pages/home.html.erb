@@ -13,9 +13,9 @@
     <div class="col-12">
       <div class="d-flex justify-content-center align-items-center">
         <% if user_signed_in? %>
-          <%= link_to 'Start', doctors_path, class: 'btn btn-primary btn-round rounded-circle d-flex justify-content-center align-items-center' %>
+          <%= link_to t('.cta'), doctors_path, class: 'btn btn-primary btn-round rounded-circle d-flex justify-content-center align-items-center' %>
         <% else %>
-          <%= link_to 'Sign up', login_path, class: 'btn btn-primary btn-round rounded-circle d-flex justify-content-center align-items-center' %>
+          <%= link_to t('sign_up'), login_path, class: 'btn btn-primary btn-round rounded-circle d-flex justify-content-center align-items-center' %>
         <% end %>
       </div>
     </div>

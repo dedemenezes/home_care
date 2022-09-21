@@ -28,6 +28,9 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  welcome: "Welcome to"
+  welcome: 'Welcome to'
+  pages:
+    home:
+      cta: 'Start'
+  sign_up: 'Sign up'
