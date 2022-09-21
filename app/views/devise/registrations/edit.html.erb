@@ -6,7 +6,19 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'row', method: :put }) do |f| %>
+      <%= simple_form_for(
+        resource,
+        as: resource_name,
+        url: registration_path(resource_name),
+        html: {
+          class: 'row',
+          method: :put,
+          data: {
+            controller: "address-autocomplete",
+            address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]
+          }
+        }
+      ) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
@@ -23,22 +35,47 @@
             <div class="col-12 col-sm-9 col-lg-9">
               <%= f.input :street,
                           input_html: {data: {address_autocomplete_target: "street"}, class: "d-none"},
-                          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+                          wrapper_html: {data: { address_autocomplete_target: "streetWrapper" }}
                         %>
               <%#= f.input :street, required: true, autofocus: true %>
             </div>
             <div class="col-4 col-sm-3 col-lg-3">
-              <%= f.input :street_number, label: 'Number', required: true, autofocus: true %>
+              <%= f.input :street_number,
+                          label: 'Number',
+                          required: true,
+                          autofocus: true %>
             </div>
             <div class="col-8 col-sm-7 col-lg-8">
-              <%= f.input :city, required: true, autofocus: true %>
+              <%= f.input :city,
+                          required: true,
+                          autofocus: true,
+                          input_html: {
+                            data: {
+                              address_autocomplete_target: "city"
+                            }
+                          } %>
             </div>
             <div class="col-6 col-sm-5 col-lg-4">
-              <%= f.input :state, required: true, autofocus: true %>
+              <%= f.input :state,
+                          required: true,
+                          autofocus: true,
+                          input_html: {
+                            data: {
+                              address_autocomplete_target: "state"
+                            }
+                          } %>
             </div>
           <%# <div class="row"> %>
             <div class="col-6 col-sm-7 col-lg-3">
-              <%= f.input :country, as: :string,  required: true, autofocus: true %>
+              <%= f.input :country,
+                          as: :string,
+                          required: true,
+                          autofocus: true,
+                          input_html: {
+                            data: {
+                              address_autocomplete_target: "country"
+                            }
+                          } %>
             </div>
             <div class="col-12 col-sm-5 col-lg-3">
               <%= f.input :phone_number, required: true, autofocus: true %>

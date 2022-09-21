@@ -16,6 +16,12 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def display_email
+    return email unless email.size > 27
+
+    "#{email[0..25]}..."
+  end
+
   def available?
     true
   end
