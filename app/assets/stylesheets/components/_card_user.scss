@@ -1,19 +1,25 @@
 .card__user {
   display: grid;
-  grid-template-columns: 2fr 3fr;
-  grid-gap: 16px;
+  grid-template-columns: 5fr 4fr;
+  grid-gap: 8px;
   margin-bottom: 1rem;
-  height: 68px;
   overflow: hidden;
+  background-color: #e68f9f;
+  padding: 4px 8px;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px #e68f9f;
   p {
     margin-bottom: 0;
+    // font-size: 14px;
+    // letter-spacing: -1px;
   }
 }
 
 .card__user__info {
   display: flex;
   justify-content: space-between;
-  grid-gap: 16px;
+  grid-gap: 8px;
 }
 
 .card__sub_info {
@@ -23,9 +29,20 @@
 
 .doc__infos {
   flex-grow: 1;
+  font-size: 13px;
 }
 
 .doctor__info {
   display: flex;
   justify-content: space-between;
+}
+
+.pager--active {
+  background-color: white;
+  height: 9px;
+  width: 24px;
+  position: absolute;
+  bottom: 19px;
+  left: 4px;
+  border-radius: 2px;
 }

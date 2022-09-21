@@ -1,0 +1,22 @@
+.path_tree {
+  display: flex;
+  grid-gap: 1rem;
+  padding: 4px 12px;
+}
+
+.path_tree a {
+  text-decoration: none;
+  border-bottom: 1px solid $primary;
+  padding: 2px 0;
+  margin-right: .325rem;
+}
+
+.path_tree i {
+  font-size: .75rem;
+}
+
+.path {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

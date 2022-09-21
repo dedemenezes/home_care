@@ -55,6 +55,8 @@ gem "simple_form", github: "heartcombo/simple_form"
 
 gem 'pundit'
 
+gem "geocoder"
+
 # TWILIO
 gem 'twilio-ruby', '~> 5.72'
 group :development, :test do

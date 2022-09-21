@@ -1,7 +1,7 @@
 <div class="card__user">
   <div class="">
     <p><%= doctor.full_name %></p>
-    <p class="card__sub_info"><%= "#{doctor.street} - #{doctor.state}" %></p>
+    <p class="card__sub_info"><%= "#{doctor.city}" %></p>
   </div>
   <div class="card__user__info">
     <div class="doc__infos">
@@ -15,8 +15,9 @@
       </div>
     </div>
     <div class="" style='padding: 0; font-size: 2rem;'>
-      <%= link_to doctor_path(doctor) do %>
+      <%= link_to doctor_path(doctor), style: 'position: relative;' do %>
         <%= icon 'fa-solid','pager' %>
+        <div class="d-none"></div>
       <% end %>
     </div>
   </div>

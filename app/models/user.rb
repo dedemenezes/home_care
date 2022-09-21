@@ -4,6 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_city?
+  after_validation :geocode, if: :will_save_change_to_street?
+  after_validation :geocode, if: :will_save_change_to_street_number?
+  after_validation :geocode, if: :will_save_change_to_country?
+  after_validation :geocode, if: :will_save_change_to_state?
+
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -14,5 +21,9 @@ class User < ApplicationRecord
 
   def home_care?
     true
+  end
+
+  def address
+    [country, state, city].compact.join(', ')
   end
 end
