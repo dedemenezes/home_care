@@ -10,8 +10,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:phone_number, :state, :country, :city, :street, :street_number, :first_name, :last_name])
   end
 
-  def after_sign_up_path(resource)
-    root_path
+  def after_sign_up_path_for(resource)
+    profile_path
+  end
+
+  def after_sign_in_path_for(resource)
+    profile_path
   end
 
   def set_twilio_sid_to_session

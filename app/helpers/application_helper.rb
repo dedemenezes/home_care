@@ -1,5 +1,8 @@
 module ApplicationHelper
   def rendering_landing_page
-    params[:controller] == 'pages' && params[:action] == 'home'
+    return if user_signed_in?
+
+    (params[:controller] == 'pages' && params[:action] == 'home') # ||
+    # (params[:controller].match? /(twilio|devise)/)
   end
 end

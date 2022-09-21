@@ -1,5 +1,5 @@
 class TwilioCodeMessagesController < ApplicationController
-  COUNTRY_REGEX = /(?<country>\w+)\s\(\+(?<ddi>\d{2,3})\)/
+  COUNTRY_REGEX = /(?<country>\w+)\s\(\+(?<ddi>\d+)\)/
   skip_before_action :authenticate_user!
 
   def new
@@ -9,7 +9,13 @@ class TwilioCodeMessagesController < ApplicationController
     session[:user_phone_number] = set_phone_number
     session[:user_country] = country_params.match(COUNTRY_REGEX)[:country].capitalize
     session[:user_role] = role_params
-    Twilio::SMS.new(session[:twilio_sid]).send_sms(session[:user_phone_number])
+    begin
+      Twilio::SMS.new(session[:twilio_sid]).send_sms(session[:user_phone_number])
+    rescue => exception
+      flash[:alert] = 'Can\'t send message to given phone number'
+      redirect_to login_path
+      return
+    end
     redirect_to new_sms_path
   end
 

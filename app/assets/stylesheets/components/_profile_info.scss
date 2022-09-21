@@ -1,0 +1,18 @@
+.profile__info {
+  padding: 12px 24px;
+  background-color: #e68f9f;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
+  // & > div {
+  //   grid-gap: 16px;
+  // }
+}
+
+.profile__action {
+  padding: 8px 24px;
+  background-color: #e68f9f;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
+}
