@@ -1,24 +1,33 @@
-<div class="card__user">
-  <div class="">
-    <p><%= doctor.full_name %></p>
-    <p class="card__sub_info"><%= "#{doctor.city}" %></p>
-  </div>
-  <div class="card__user__info">
-    <div class="doc__infos">
-      <div class="doctor__info">
-        <p>Available</p>
-        <p><strong><%= doctor.available? ? 'YES' : 'NO' %></strong></p>
+<div data-controller="ajax-render">
+  <div class="card__user">
+    <div class="">
+      <p><%= doctor.full_name %></p>
+      <p class="card__sub_info"><%= "#{doctor.city}" %></p>
+    </div>
+    <div class="card__user__info">
+      <div class="doc__infos">
+        <div class="doctor__info">
+          <p>Available</p>
+          <p><strong><%= doctor.available? ? 'YES' : 'NO' %></strong></p>
+        </div>
+        <div class="doctor__info">
+          <p>Home Care</p>
+          <p><strong><%= doctor.home_care? ? 'YES' : 'NO' %></strong></p>
+        </div>
       </div>
-      <div class="doctor__info">
-        <p>Home Care</p>
-        <p><strong><%= doctor.home_care? ? 'YES' : 'NO' %></strong></p>
+      <div class="" style='padding: 0; font-size: 2rem;'>
+        <%= link_to doctor_path(doctor),
+                    style: 'position: relative;',
+                    data: {
+                      action: 'click->ajax-render#update',
+                      ajax_render_target: 'link'
+                    } do %>
+          <%= icon 'fa-solid','pager' %>
+          <div class="d-none" data-ajax-render-target='pagerLight'></div>
+        <% end %>
       </div>
     </div>
-    <div class="" style='padding: 0; font-size: 2rem;'>
-      <%= link_to doctor_path(doctor), style: 'position: relative;' do %>
-        <%= icon 'fa-solid','pager' %>
-        <div class="d-none"></div>
-      <% end %>
-    </div>
   </div>
+
+  <div data-ajax-render-target='container'></div>
 </div>

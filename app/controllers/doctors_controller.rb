@@ -10,5 +10,10 @@ class DoctorsController < ApplicationController
       lng: @doctor.longitude
     }
     authorize @doctor
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "doctors/show", locals: {doctor: @doctor, marker: @marker}, formats: [:html] }
+    end
   end
 end

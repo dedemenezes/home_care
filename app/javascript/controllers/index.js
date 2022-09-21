@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AjaxRenderController from "./ajax_render_controller"
+application.register("ajax-render", AjaxRenderController)
+
 import FormController from "./form_controller"
 application.register("form", FormController)
 
