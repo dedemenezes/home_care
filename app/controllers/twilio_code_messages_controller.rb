@@ -10,7 +10,6 @@ class TwilioCodeMessagesController < ApplicationController
   end
 
   def create
-    binding.pry
     session[:user_phone_number] = set_phone_number
     session[:user_country]      = country_params.match(COUNTRY_REGEX)[:country].capitalize
     session[:user_role]         = role_params
