@@ -1,0 +1,12 @@
+doc:
+  email: 'doc@test.com'
+  phone_number: "+553176-99040"
+  image_url: "https://randomuser.me/api/portraits/men/53.jpg"
+  country: "Brazil"
+  city: "Carapicuíba"
+  state: "Acre"
+  street_number: "1159"
+  street: "Rua São Pedro"
+  first_name: "Doc"
+  last_name: "Rivers"
+  role: 'doctor'

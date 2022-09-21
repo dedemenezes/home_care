@@ -1,0 +1,6 @@
+<div class="container">
+  <h1 class="text-center">Doctors</h1>
+  <% @doctors.each do |doctor| %>
+    <%= render 'doctors/doctor', doctor: doctor %>
+  <% end %>
+</div>

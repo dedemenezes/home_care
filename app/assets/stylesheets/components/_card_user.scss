@@ -1,0 +1,31 @@
+.card__user {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 16px;
+  margin-bottom: 1rem;
+  height: 68px;
+  overflow: hidden;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.card__user__info {
+  display: flex;
+  justify-content: space-between;
+  grid-gap: 16px;
+}
+
+.card__sub_info {
+  font-size: 12px;
+  opacity: .8;
+}
+
+.doc__infos {
+  flex-grow: 1;
+}
+
+.doctor__info {
+  display: flex;
+  justify-content: space-between;
+}

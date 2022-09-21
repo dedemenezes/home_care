@@ -4,6 +4,7 @@
 module Twilio
   # SPECIFIC FOR SMS INTERACTIONS
   class SMS
+    attr_reader :client, :service
     # inializing without twilio_sid wil create a new service
     # ideally the new service.pid will be assigned to session[:twilio_sid]
     # to be passed on next twilio interaction. GOAL: Use always the same service ;)

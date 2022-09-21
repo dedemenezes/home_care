@@ -7,4 +7,12 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def available?
+    true
+  end
+
+  def home_care?
+    true
+  end
 end
