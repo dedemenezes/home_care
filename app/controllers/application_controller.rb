@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def locale_from_header
-    request.env("HTTP_ACCEPT_LANGUAGE", "").scan(/[a-z]{2}/).first
+    request.env.fetch("HTTP_ACCEPT_LANGUAGE", "").scan(/[a-z]{2}/).first
   end
 
   def configure_permitted_parameters
