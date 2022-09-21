@@ -13,7 +13,7 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: "doctors/show", locals: {doctor: @doctor, marker: @marker}, formats: [:html] }
+      format.text { render partial: "profiles/header", locals: {user: @doctor}, formats: [:html] }
     end
   end
 end

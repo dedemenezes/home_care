@@ -1,7 +1,9 @@
 <div data-controller="ajax-render">
   <div class="card__user">
     <div class="">
-      <p><%= doctor.full_name %></p>
+      <%= link_to doctor_path(doctor) do %>
+        <p><%= doctor.full_name %></p>
+      <% end %>
       <p class="card__sub_info"><%= "#{doctor.city}" %></p>
     </div>
     <div class="card__user__info">
