@@ -1,11 +1,9 @@
 class RoundsController < ApplicationController
   def show
     @round = Round.find(params[:id])
-    if params[:question].present?
-      @question = @round.level_one_questions.find(params[:question].to_i + 1)
-    else
-      @question = Question.first
-    end
+    @question = Question.first
+    next_question = params[:question].to_i + 1 if params[:question].present?
+    @question = Question.find(next_question) if next_question
     @answer = Answer.find_by(question: @question, round: @round) || Answer.new
     authorize @round
   end

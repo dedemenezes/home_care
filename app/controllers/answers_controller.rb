@@ -16,7 +16,11 @@ class AnswersController < ApplicationController
         @answer.correct = false
         @answer.save
       end
-      redirect_to round_path(@round, question: @question.id)
+      if @round.level_one_last_question_id == @question.id
+        redirect_to games_path
+      else
+        redirect_to round_path(@round, question: @question.id)
+      end
     else
       render 'rounds/show'
     end
