@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
-  before_action :set_locale
+  # before_action :set_locale
   before_action :authenticate_user!
   before_action :set_twilio_sid_to_session
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -15,9 +15,8 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       I18n.locale = current_user.language
     else
-
+      I18n.locale = params[:lang] || locale_from_header || I18n.default_locale
     end
-    I18n.locale = params[:lang] || locale_from_header || I18n.default_locale
   end
 
   # Enforce lang params on every url
