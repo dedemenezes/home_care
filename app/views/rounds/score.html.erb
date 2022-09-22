@@ -15,22 +15,11 @@
   <% end %>
   <div class="score__round--layout">
     <div class="score__level--left flex-centered">
-      <div class="progress-pie-chart"
-           data-controller="percents-bar"
-           data-percents-bar-percent-value="50">
-        <div class="ppc-progress">
-          <div class="ppc-progress-fill" data-percents-bar-target="fill"></div>
-        </div>
-        <div class="ppc-percents">
-          <div class="pcc-percents-wrapper">
-            <span data-percents-bar-target="span">%</span>
-          </div>
-        </div>
-      </div>
-      <%# <p class="mb-0">Correct answers</p> %>
+      <%= render 'shared/circle_progress_bar', percent: 95 %>
+      <p class="mb-0">Correct answers</p>
     </div>
     <div class="score__level--right flex-centered">
-      <p class="mb-0">30%</p>
+      <%= render 'shared/circle_progress_bar', percent: 95 %>
       <p class="mb-0">Correct answers</p>
     </div>
   </div>

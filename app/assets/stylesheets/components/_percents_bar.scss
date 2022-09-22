@@ -4,14 +4,14 @@
   border-radius: 50%;
   left: calc(50% - #{$size/2});
   top: calc(50% - #{$size/2});
-  width: $size;
+  min-width: $size;
   height: $size;
 }
 
 $size: 50px;
 
 .progress-pie-chart {
-  width: $size;
+  min-width: $size;
   height: $size;
   border-radius: 50%;
   background-color: #E5E5E5;
