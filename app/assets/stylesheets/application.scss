@@ -33,3 +33,13 @@
 .b-shadow {
   box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
 }
+
+.mr-min {
+  margin-right: .25rem;
+}
+
+.flex-centered {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

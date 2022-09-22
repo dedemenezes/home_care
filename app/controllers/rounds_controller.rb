@@ -20,4 +20,9 @@ class RoundsController < ApplicationController
       render 'games/index', status: :unprocessable_entity
     end
   end
+
+  def score
+    @round = Round.find(params[:id])
+    authorize @round
+  end
 end

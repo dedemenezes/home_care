@@ -1,0 +1,37 @@
+<div class="container">
+  <h1><%= t('well_done') %>, <%= current_user.full_name %></h1>
+  <%= content_tag :div, class: 'score__header--layout' do %>
+    <div class="d-flex align-items-center justify-content-start">
+      <small class='avatar-mine-3 mr-min'>13</small>
+      <p class="mb-0">Dedefla</p>
+    </div>
+    <h2 class='mb-0'>Trivia 1</h2>
+    <div class="d-flex align-items-center justify-content-end">
+      <div class="ranking">
+        <%= icon 'fa-regular', 'star' %>
+        <small>13</small>
+      </div>
+    </div>
+  <% end %>
+  <div class="score__round--layout">
+    <div class="score__level--left flex-centered">
+      <div class="progress-pie-chart"
+           data-controller="percents-bar"
+           data-percents-bar-percent-value="50">
+        <div class="ppc-progress">
+          <div class="ppc-progress-fill" data-percents-bar-target="fill"></div>
+        </div>
+        <div class="ppc-percents">
+          <div class="pcc-percents-wrapper">
+            <span data-percents-bar-target="span">%</span>
+          </div>
+        </div>
+      </div>
+      <%# <p class="mb-0">Correct answers</p> %>
+    </div>
+    <div class="score__level--right flex-centered">
+      <p class="mb-0">30%</p>
+      <p class="mb-0">Correct answers</p>
+    </div>
+  </div>
+</div>

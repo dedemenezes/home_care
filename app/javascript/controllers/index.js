@@ -21,3 +21,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import PercentsBarController from "./percents_bar_controller"
+application.register("percents-bar", PercentsBarController)

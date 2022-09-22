@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
         @answer.save
       end
       if @round.level_one_last_question_id == @question.id
-        redirect_to games_path
+        redirect_to score_round_path(@round)
       else
         redirect_to round_path(@round, question: @question.id)
       end

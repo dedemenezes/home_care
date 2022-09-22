@@ -14,4 +14,8 @@ class RoundPolicy < ApplicationPolicy
   def show?
     create?
   end
+
+  def score?
+    create?
+  end
 end

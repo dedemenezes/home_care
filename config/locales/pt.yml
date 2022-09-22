@@ -18,6 +18,7 @@ pt:
   available: 'Disponível'
   home_care: 'Em Domicílio'
   account: 'conta'
+  well_done: 'Muito bem'
   simple_form:
     labels:
       user:

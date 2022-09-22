@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :rounds, only: :show do
+    member do
+      get :score
+    end
     resources :answers, only: %i[create update]
   end
 end

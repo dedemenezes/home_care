@@ -48,6 +48,7 @@ en:
   available: 'Available'
   home_care: 'Home Care'
   account: 'account'
+  well_done: 'Well done'
   simple_form:
     labels:
       user:
