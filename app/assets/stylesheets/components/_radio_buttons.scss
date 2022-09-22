@@ -1,0 +1,27 @@
+.hide-and-keep {
+  position: absolute;
+  transform: scale(0);
+}
+
+.hide-and-keep + label {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+  background-color: $light-dead-pinky;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.hide-and-keep:checked + label {
+  background-color: $light-live-pinky;
+  border: 1px solid $pansy-purple-opacity;
+}
+
+.no-padding .form-check {
+  padding-left: 0;
+}

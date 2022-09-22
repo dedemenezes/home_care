@@ -17,11 +17,14 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" unless rendering_landing_page %>
-    <%= render "shared/flashes" %>
-    <%#= params %>
-
-    <%= yield %>
+    <div class="d-flex flex-column min-vh-100">
+      <%= render "shared/navbar" unless rendering_landing_page %>
+      <%= render 'shared/flashes' %>
+      <article class="flex-grow-1">
+        <%= yield %>
+      </article>
+      <%#= render 'shared/footer' %>
+    </div>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
   </body>
 </html>

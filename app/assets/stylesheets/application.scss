@@ -12,6 +12,7 @@
 @import "components/index";
 @import "pages/index";
 @import "users/index";
+@import "rounds/index";
 
 .wrong .is-valid {
   border-color: $pansy-purple;
@@ -26,4 +27,9 @@
 
 .wrong .form-check-input:valid:checked + label {
   color: $brick-red;
+}
+
+
+.b-shadow {
+  box-shadow: 0 2px 1px rgba(0, 0, 0, .1);
 }
