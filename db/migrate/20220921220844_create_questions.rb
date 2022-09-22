@@ -3,6 +3,7 @@ class CreateQuestions < ActiveRecord::Migration[7.0]
     create_table :questions do |t|
       t.string :content
       t.string :answer
+      t.integer :usual_number
 
       t.timestamps
     end

@@ -10,6 +10,7 @@ pt:
   find_carer: 'buscar cuidador'
   find_carers: 'buscar cuidadores'
   home: 'Página inicial'
+  games: 'Jogos'
   messages: 'Mensagens'
   log_out: 'Sair'
   yes_sir: 'Sim'

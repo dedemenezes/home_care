@@ -1,0 +1,5 @@
+<%= simple_form_for [game, round] do |f| %>
+  <%= button_tag :submit, data: { disable_with: 'Create round'}, id: 'create_round' do %>
+    <%= icon 'fa-solid', 'dna'%>
+  <% end %>
+<% end %>

@@ -12,3 +12,18 @@
 @import "components/index";
 @import "pages/index";
 @import "users/index";
+
+.wrong .is-valid {
+  border-color: $pansy-purple;
+}
+.wrong .form-check-label.collection_radio_buttons {
+  color: $pansy-purple;
+}
+
+.wrong .form-check-input:valid:checked.form-check-input.is-valid:checked {
+  background-color: $brick-red;
+}
+
+.wrong .form-check-input:valid:checked + label {
+  color: $brick-red;
+}

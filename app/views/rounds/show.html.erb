@@ -1,0 +1,17 @@
+<div class="container">
+  <h2><%= @question.content %></h2>
+  <%= simple_form_for [@round, @answer], html: { novalidate: true } do |f| %>
+    <%= f.association :user_answer,
+                      wrapper_html: {
+                        class: right_class_to_option_radio_button(@answer)
+                      },
+                      collection: @question.options,
+                      label: 'Answer',
+                      label_method: :content,
+                      value_method: :id,
+                      required: false,
+                      as: :radio_buttons %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+
+</div>

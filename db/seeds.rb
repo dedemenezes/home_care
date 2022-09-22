@@ -9,15 +9,12 @@ require 'open-uri'
 require 'json'
 require 'nokogiri'
 
-url = 'https://randomuser.me/api/?nat=br&results=10'
-
-data = JSON.parse(URI.open(url).read)
-
 User.destroy_all
-Question.destroy_all
-
+Game.destroy_all
 puts 'seeding users...'
 
+url = 'https://randomuser.me/api/?nat=br&results=10'
+data = JSON.parse(URI.open(url).read)
 data['results'].each_with_index do |random_user, index|
   user = User.create!(
     email: random_user['email'],
@@ -67,24 +64,19 @@ quiz.each do |question|
   question[:answer] = { question[:answer][1] => question[:answer][4..].strip }
 end
 # quiz = Hash[questions.zip(answers)]
-p quiz
+# p quiz
+trivia = Game.create! name: 'Trivia'
 quiz.each do |question|
-  q = Question.create! content: question[:question], answer: question[:answer].to_json
+  sanitized_content = question[:question].gsub(/\d{1,2}\. /,'')
+  sanitized_number = question[:question].slice(/\d{1,2}/)
+  q = Question.create!(
+    game: trivia,
+    content: sanitized_content,
+    usual_number: sanitized_number,
+    answer: question[:answer].to_json
+  )
+  p q.to_s
   question[:options].each do |key, value|
-    Option.create question: q, content: { key => value }.to_json
+    Option.create question: q, content: value, letter: key
   end
 end
-# {
-#   :question => "25. A man weighing 96 kg consists of approximately _______ litres of water.",
-#   :options => {
-#     "a"=>"50 litres",
-#     "b"=>"66.5 Iitres",
-#     "c"=>"82 litres",
-#     "d"=>"421itres"
-#   },
-#   :answer => {
-#     "b" => "66.5 Iitres"
-#   }
-# }
-  # question_data = question.match /(\d*)\. (.*)/
-  # quiz["question_#{question_data[0]}"] = {question: question_data[1] }
