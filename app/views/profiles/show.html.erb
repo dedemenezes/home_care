@@ -1,56 +1,54 @@
 <div class="container">
-  <div class="profile">
-    <%= render 'profiles/header', user: current_user %>
-    <div class="profile__actions">
-      <div class="row justify-content-center">
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4"></div>
-      </div>
-      <div class="row justify-content-center mb-3">
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-          <div class="profile__action">
-            <%= link_to edit_user_registration_path, class: 'link-mine' do %>
-              <div class="row">
-                <div class="col-10">
-                  <%= t('edit').capitalize %> <%= t('profile') %>
-                </div>
-                <div class="col-2">
-                  <%= icon 'fa-solid', 'chevron-right', class: 'icon--hover' %>
-                </div>
+  <%= render 'profiles/header', user: current_user %>
+  <div class="profile__actions">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4"></div>
+    </div>
+    <div class="row justify-content-center mb-3">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="profile__action">
+          <%= link_to edit_user_registration_path, class: 'link-mine' do %>
+            <div class="row">
+              <div class="col-10">
+                <%= t('edit').capitalize %> <%= t('profile') %>
               </div>
-            <% end %>
-          </div>
+              <div class="col-2">
+                <%= icon 'fa-solid', 'chevron-right', class: 'icon--hover' %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
-      <div class="row justify-content-center mb-3">
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-          <div class="profile__action">
-            <%= link_to doctors_path, class: 'link-mine' do %>
-              <div class="row">
-                <div class="col-10">
-                  <%= t('find_carers').capitalize %>
-                </div>
-                <div class="col-2">
-                  <%= icon 'fa-solid', 'chevron-right', class: 'icon--hover' %>
-                </div>
+    </div>
+    <div class="row justify-content-center mb-3">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="profile__action">
+          <%= link_to doctors_path, class: 'link-mine' do %>
+            <div class="row">
+              <div class="col-10">
+                <%= t('find_carers').capitalize %>
               </div>
-            <% end %>
-          </div>
+              <div class="col-2">
+                <%= icon 'fa-solid', 'chevron-right', class: 'icon--hover' %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
-      <div class="row justify-content-center mb-3">
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-          <div class="profile__action">
-            <%= link_to games_path, class: 'link-mine' do %>
-              <div class="row">
-                <div class="col-10">
-                  <%= t('games').capitalize %>
-                </div>
-                <div class="col-2">
-                  <%= icon 'fa-solid', 'chevron-right', class: 'icon--hover' %>
-                </div>
+    </div>
+    <div class="row justify-content-center mb-3">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="profile__action">
+          <%= link_to games_path, class: 'link-mine' do %>
+            <div class="row">
+              <div class="col-10">
+                <%= t('games').capitalize %>
               </div>
-            <% end %>
-          </div>
+              <div class="col-2">
+                <%= icon 'fa-solid', 'chevron-right', class: 'icon--hover' %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
