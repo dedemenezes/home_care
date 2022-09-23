@@ -33,6 +33,26 @@ body {
   color: $brick-red;
 }
 
+.right .is-valid {
+  border-color: $pansy-purple;
+}
+
+.right .form-check-label.collection_radio_buttons {
+  color: $pansy-purple;
+}
+
+.right .form-check-input:valid:checked.form-check-input.is-valid:checked {
+  background-color: $success;
+}
+
+.right .form-check-input:valid:checked + label {
+  color: $brick-red;
+}
+
+.answer_user_answer .form-check-input.is-valid + label {
+  color: white !important;
+}
+
 
 .b-shadow {
   box-shadow: 0 2px 1px rgba(0, 0, 0, .1);

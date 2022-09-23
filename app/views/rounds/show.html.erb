@@ -15,10 +15,11 @@
     <%= f.association :user_answer,
                       collection: @question.options,
                       input_html: {
-                        class: 'hide-and-keep'
+                        class: "hide-and-keep"
+
                       },
                       wrapper_html: {
-                        class: 'no-padding'
+                        class: " #{right_class_to_option_radio_button(@answer)} no-padding"
                       },
                       label: 'Answer',
                       label_method: :content,
