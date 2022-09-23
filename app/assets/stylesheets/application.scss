@@ -44,3 +44,37 @@
   justify-content: space-between;
   grid-gap: 12px;
 }
+.centered-column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.game__icon {
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $pansy-purple;
+  border-image: none;
+  background-color: $pansy-purple;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: $light-dead-pinky;
+}
+
+
+.leaderboard__card {
+  background-image: asset-url('leaderboard.png');
+  background-size: contain;
+  height: 160px;
+  justify-content: center;
+  align-items: flex-end;
+  display: flex;
+  background-repeat: no-repeat;
+  background-position: top;;
+}

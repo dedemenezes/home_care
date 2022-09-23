@@ -19,6 +19,8 @@ pt:
   home_care: 'Em Domicílio'
   account: 'conta'
   well_done: 'Muito bem'
+  round_result: 'Resultado da rodada'
+  next_level: 'Próximo level'
   simple_form:
     labels:
       user:

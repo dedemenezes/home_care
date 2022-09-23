@@ -65,7 +65,7 @@ quiz.each do |question|
 end
 # quiz = Hash[questions.zip(answers)]
 # p quiz
-trivia = Game.create! name: 'Trivia'
+trivia = Game.create! name: 'Trivia', icon_name: 'dna'
 quiz.each do |question|
   sanitized_content = question[:question].gsub(/\d{1,2}\. /,'')
   sanitized_number = question[:question].slice(/\d{1,2}/)

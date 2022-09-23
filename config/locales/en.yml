@@ -49,6 +49,8 @@ en:
   home_care: 'Home Care'
   account: 'account'
   well_done: 'Well done'
+  round_result: 'Round result'
+  next_level: 'Next level'
   simple_form:
     labels:
       user:

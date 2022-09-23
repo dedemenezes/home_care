@@ -1,2 +1,6 @@
-<%= render 'rounds/new', game: game, round: round %>
-<h2><%= game.name %></h2>
+<div class="centered-column">
+  <%= render 'rounds/new', game: game, round: round do %>
+    <%= icon 'fa-solid', game.icon_name %>
+  <% end %>
+  <h2><%= game.name %></h2>
+</div>

@@ -1,6 +1,32 @@
 <div class="container">
   <h1><%= t('games').capitalize %></h1>
-  <ul>
-    <%= render @games, round: @round %>
-  </ul>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <%= render 'game', game: @games.first, round: @round %>
+    </div>
+  </div>
+
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <%= render 'game', game: @games.first, round: @round %>
+    </div>
+    <div class="col-4">
+      <%= render 'game', game: @games.first, round: @round %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <%= render 'game', game: @games.first, round: @round %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= link_to 'leaderboard_path' do %>
+        <div class='leaderboard__card'>
+          <%#= image_tag 'leaderboard.png', width: '100%' %>
+          <p class='mb-0'>Leaderboard</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
