@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_23_002858) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_25_051357) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_23_002858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "icon_name"
+    t.integer "level", default: 1
   end
 
   create_table "options", force: :cascade do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_23_002858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "game_id", null: false
+    t.integer "level"
     t.index ["game_id"], name: "index_questions_on_game_id"
   end
 
@@ -59,6 +61,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_23_002858) do
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "completed", default: false
+    t.boolean "points_given", default: false
+    t.integer "level", default: 1
     t.index ["game_id"], name: "index_rounds_on_game_id"
     t.index ["user_id"], name: "index_rounds_on_user_id"
   end
@@ -84,6 +89,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_23_002858) do
     t.float "latitude"
     t.float "longitude"
     t.string "language"
+    t.integer "level", default: 1
+    t.integer "points", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

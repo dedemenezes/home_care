@@ -13,29 +13,9 @@ User.destroy_all
 Game.destroy_all
 puts 'seeding users...'
 
-url = 'https://randomuser.me/api/?nat=br&results=10'
-data = JSON.parse(URI.open(url).read)
-data['results'].each_with_index do |random_user, index|
-  user = User.create!(
-    email: random_user['email'],
-    password: 123456,
-    phone_number: "+55#{random_user['phone'].split(' ').last}#{rand(9)}",
-    country: random_user['location']['country'],
-    role: index.even? ? 'doctor' : 'patient',
-    city: random_user['location']['city'],
-    street: random_user['location']['street']['name'],
-    street_number: random_user['location']['street']['number'],
-    state: random_user['location']['state'],
-    first_name: random_user['name']['first'],
-    last_name: random_user['name']['last'],
-    image_url: random_user['picture']['large']
-    )
-  p user
-end
-
-
 html = File.open(Rails.root.join('./Multiple-Choice-Questions-of-Biology-with-Answers-Ilmi-Hub.html')).read
 doc = Nokogiri::HTML(html)
+
 # p doc
 # Array.from(document.querySelectorAll('p')).map(e => e.innerText.match(/^\(\w*\)/)).filter(e => e !== null)
 questions = []
@@ -63,17 +43,50 @@ quiz.each do |question|
   question[:options] = question[:options][...-12].split('(')[1..].map { |option| [option[0], option[3..].strip] }.to_h
   question[:answer] = { question[:answer][1] => question[:answer][4..].strip }
 end
-# quiz = Hash[questions.zip(answers)]
-# p quiz
+
+url = 'https://randomuser.me/api/?nat=br&results=10'
+data = JSON.parse(URI.open(url).read)
+
+data['results'].each_with_index do |random_user, index|
+  user = User.create!(
+    email: random_user['email'],
+    password: 123456,
+    phone_number: "+55#{random_user['phone'].split(' ').last}#{rand(9)}",
+    country: random_user['location']['country'],
+    role: index.even? ? 'doctor' : 'patient',
+    city: random_user['location']['city'],
+    street: random_user['location']['street']['name'],
+    street_number: random_user['location']['street']['number'],
+    state: random_user['location']['state'],
+    first_name: random_user['name']['first'],
+    last_name: random_user['name']['last'],
+    image_url: random_user['picture']['large']
+    )
+  p user
+end
+
+def set_level
+  last_question = Question.last
+  return 1 if last_question.nil?
+
+  counter = Question.count { |question| question.level == last_question.level }
+  if counter == 5
+    last_question.level + 1
+  else
+    last_question.level
+  end
+end
+
 trivia = Game.create! name: 'Trivia', icon_name: 'dna'
-quiz.each do |question|
+quiz.each_with_index do |question, index|
   sanitized_content = question[:question].gsub(/\d{1,2}\. /,'')
   sanitized_number = question[:question].slice(/\d{1,2}/)
   q = Question.create!(
     game: trivia,
     content: sanitized_content,
     usual_number: sanitized_number,
-    answer: question[:answer].to_json
+    answer: question[:answer].to_json,
+    level: set_level
   )
   p q.to_s
   question[:options].each do |key, value|
