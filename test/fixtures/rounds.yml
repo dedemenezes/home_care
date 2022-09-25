@@ -1,0 +1,6 @@
+first:
+  user: doc
+  game: trivia
+  completed: false
+  points_given: false
+  level: 1

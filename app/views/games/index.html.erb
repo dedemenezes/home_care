@@ -10,7 +10,7 @@
     <div class="col-4">
       <div class="centered-column">
         <%= simple_form_for [@games.first, @round] do |f| %>
-          <%= button_tag :submit, data: { disable_with: 'Create round'}, id: 'create_round', class: 'game__icon' do %>
+          <%= button_tag :submit, data: { disable_with: 'Create round'}, id: 'create_trivia', class: 'game__icon' do %>
             <%#= yield %>
             <%= icon 'fa-solid', @games.first.icon_name %>
           <% end %>
@@ -20,9 +20,9 @@
         <h2><%= @games.first.name %></h2>
       </div>
     </div>
-    <div class="col-4">
+    <%# <div class="col-4">
       <%= render 'game', game: @games.first, round: @round %>
-    </div>
+    </div> %>
   </div>
   <div class="row justify-content-center">
     <div class="col-6">

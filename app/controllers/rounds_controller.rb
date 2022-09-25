@@ -2,7 +2,6 @@ class RoundsController < ApplicationController
   def show
     @round = Round.find(params[:id])
     # eliminar questoes respondidas no round vencedor
-
     if params[:question].present?
       next_question = params[:question].to_i + 1
       @question = Question.find(next_question) if next_question

@@ -1,16 +1,38 @@
-a:
+why_tests_right_option:
   content: 'Is important'
-  question: q_one
+  question_id: 1
   letter: 'a'
-b:
+why_tests_b:
   content: 'improve code maintainance'
-  question: q_one
+  question_id: 1
   letter: 'b'
-c:
+why_tests_c:
   content: 'Is good'
-  question: q_one
+  question_id: 1
   letter: 'c'
-d:
+why_tests_d:
   content: 'Is professional'
-  question: q_one
+  question_id: 1
   letter: 'd'
+
+why_unit_right_option:
+  content: 'Is important'
+  question_id: 2
+  letter: 'a'
+why_unit_b:
+  content: 'improve code maintainance'
+  question_id: 2
+  letter: 'b'
+why_unit_c:
+  content: 'Is good'
+  question_id: 2
+  letter: 'c'
+why_unit_d:
+  content: 'Is professional'
+  question_id: 2
+  letter: 'd'
+
+# not_trivia_right_option:
+#   content: 'Not trivia'
+#   question: not_trivia
+#   letter: 'd'

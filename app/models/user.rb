@@ -13,7 +13,7 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_state?
 
   has_many :rounds, dependent: :destroy
-  has_many :user_answer, class_name: 'Answer', foreign_key: :user_answer_id
+  has_many :user_answers, class_name: 'Answer', foreign_key: :user_answer_id
 
   def full_name
     "#{first_name} #{last_name}"

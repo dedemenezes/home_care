@@ -1,9 +1,9 @@
 class Twilio::SMSTest < ActiveSupport::TestCase
-  setup do
-    @twilio_sms = Twilio::SMS.new
-  end
+  # setup do
+  #   @twilio_sms = Twilio::SMS.new
+  # end
 
-  test 'set service when initialized' do
-    assert_equal Twilio::REST::Client, @twilio_sms.client.class
-  end
+  # test 'set service when initialized' do
+  #   assert_equal Twilio::REST::Client, @twilio_sms.client.class
+  # end
 end

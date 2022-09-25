@@ -1,7 +1,7 @@
 require "test_helper"
 
 class QuestionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test '#right_answer' do
+    assert_equal 'a', questions(:why_tests).right_answer
+  end
 end
