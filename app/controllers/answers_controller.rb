@@ -10,13 +10,11 @@ class AnswersController < ApplicationController
     authorize @answer
     if @answer.save
       if @option.right?
-        @answer.correct = true
-        @answer.save
-      else
-        @answer.correct = false
-        @answer.save
+        @answer.correct!
       end
-      if @round.last_question_id_for_level(1) == @question.id
+      # level 1 => id: 5
+      # level 2 => id 10
+      if @round.last_question_id == @question.id
         redirect_to score_round_path(@round)
       else
         redirect_to round_path(@round, question: @question.id)

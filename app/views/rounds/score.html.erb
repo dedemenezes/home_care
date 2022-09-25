@@ -18,7 +18,7 @@
         <p class="mb-0"><%= t('round_result') %></p>
       </div>
       <div class="score__level--right flex-centered">
-        <%= render 'shared/circle_progress_bar', percent: 17 %>
+        <%= render 'shared/circle_progress_bar', percent: current_user.points %>
         <p class="mb-0"><%= t('next_level') %></p>
       </div>
     </div>
