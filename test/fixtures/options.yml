@@ -1,35 +1,52 @@
 why_tests_right_option:
   content: 'Is important'
-  question_id: 1
+  question: why_tests
   letter: 'a'
 why_tests_b:
   content: 'improve code maintainance'
-  question_id: 1
+  question: why_tests
   letter: 'b'
 why_tests_c:
   content: 'Is good'
-  question_id: 1
+  question: why_tests
   letter: 'c'
 why_tests_d:
   content: 'Is professional'
-  question_id: 1
+  question: why_tests
   letter: 'd'
 
 why_unit_right_option:
   content: 'Is important'
-  question_id: 2
+  question: why_unit_tests
   letter: 'a'
 why_unit_b:
   content: 'improve code maintainance'
-  question_id: 2
+  question: why_unit_tests
   letter: 'b'
 why_unit_c:
   content: 'Is good'
-  question_id: 2
+  question: why_unit_tests
   letter: 'c'
 why_unit_d:
   content: 'Is professional'
-  question_id: 2
+  question: why_unit_tests
+  letter: 'd'
+
+known_answer_right_option:
+  content: 'Is important'
+  question: known_answer
+  letter: 'a'
+known_answer_b:
+  content: 'improve code maintainance'
+  question: known_answer
+  letter: 'b'
+known_answer_c:
+  content: 'Is good'
+  question: known_answer
+  letter: 'c'
+known_answer_d:
+  content: 'Is professional'
+  question: known_answer
   letter: 'd'
 
 # not_trivia_right_option:

@@ -15,6 +15,12 @@ class User < ApplicationRecord
   has_many :rounds, dependent: :destroy
   has_many :user_answers, class_name: 'Answer', foreign_key: :user_answer_id
 
+  def right_answers_count
+    sum = 0
+    rounds.each { |round| sum += round.questions.size if round.completed? }
+    sum
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

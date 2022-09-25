@@ -1,15 +1,19 @@
 why_tests:
-  id: 1
   content: "Why tests?"
   answer: "{\"a\":\"Is important\"}"
   game: trivia
   level: 1
 
 why_unit_tests:
-  id: 2
   content: "Why unit tests?"
   answer: "{\"a\":\"Is important\"}"
   game: trivia
+  level: 1
+
+known_answer:
+  content: "You know alright?"
+  answer: "{\"a\":\"Is important\"}"
+  game: finishing
   level: 1
 
 # not_trivia:
