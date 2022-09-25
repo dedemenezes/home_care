@@ -9,15 +9,12 @@ class AnswersController < ApplicationController
     @answer.question    = @question
     authorize @answer
     if @answer.save
-      if @option.right?
-        @answer.correct!
-      end
-      # level 1 => id: 5
-      # level 2 => id 10
-      if @round.last_question_id == @question.id
+      @answer.correct! if @option.right?
+      if @round.last_question? @question
         redirect_to score_round_path(@round)
       else
-        redirect_to round_path(@round, question: @question.id)
+        @next_question = [@round.questions, @round.answered_questions].flatten.uniq.sample
+        redirect_to round_path(@round, question: @next_question.id)
       end
     else
       render 'rounds/show'

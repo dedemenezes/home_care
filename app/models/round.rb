@@ -11,8 +11,8 @@ class Round < ApplicationRecord
     game.questions.where(level: level)
   end
 
-  def last_question_id
-    questions.sort_by { |q| q.level }.reverse.first.id
+  def last_question?(question)
+    questions.sort_by { |q| q.level }.reverse.first.id == question.id
   end
 
   def result_in_percent
@@ -30,5 +30,9 @@ class Round < ApplicationRecord
 
   def points_not_given?
     points_given == false
+  end
+
+  def answered_questions
+    answers.map(&:question)
   end
 end
