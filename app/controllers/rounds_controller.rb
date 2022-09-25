@@ -11,14 +11,9 @@ class RoundsController < ApplicationController
   def create
     @game = Game.find(params[:game_id])
     @round = Round.new
-    completed_rounds = current_user.rounds.where(game: @game, completed: true)
-    if completed_rounds.empty?
-      @round.level = 1
-    else
-      @round.level = completed_rounds.order(level: :desc).first.level
-    end
     @round.user = current_user
     @round.game = @game
+    @round.set_level
     authorize @round
     if @round.save
       redirect_to round_path(@round)

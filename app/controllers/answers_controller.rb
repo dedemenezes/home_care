@@ -13,7 +13,7 @@ class AnswersController < ApplicationController
       if @round.last_question? @question
         redirect_to score_round_path(@round)
       else
-        @next_question = [@round.questions, @round.answered_questions].flatten.uniq.sample
+        @next_question = [@round.questions - @round.answered_questions].flatten.uniq.sample
         redirect_to round_path(@round, question: @next_question.id)
       end
     else

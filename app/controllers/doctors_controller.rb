@@ -1,6 +1,6 @@
 class DoctorsController < ApplicationController
   def index
-    @doctors = policy_scope(User).where(role: 'doctor').geocoded
+    @doctors = policy_scope(User).where(role: 'doctor')
   end
 
   def show

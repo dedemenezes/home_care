@@ -35,4 +35,13 @@ class Round < ApplicationRecord
   def answered_questions
     answers.map(&:question)
   end
+
+  def set_level
+    completed_rounds = user.rounds.where(game: game, completed: true)
+    if completed_rounds.empty?
+      self.level = 1
+    else
+      self.level = completed_rounds.order(level: :desc).first.level
+    end
+  end
 end
