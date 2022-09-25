@@ -1,8 +1,10 @@
 trivia:
+  id: 1
   name: "Trivia"
 
 # cruzada:
 #   name: "cruzada"
 
 finishing:
+  id: 2
   name: 'finishing'

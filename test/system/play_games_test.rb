@@ -18,7 +18,7 @@ class PlayGamesTest < ApplicationSystemTestCase
     click_button 'Submit'
     # without sleep it doesn't find the answer 🤔
     sleep(1)
-    assert_equal 1, Answer.count
+    assert_equal 1, round.answers.count(&:correct)
     assert_text questions(:why_unit_tests).content
   end
 end

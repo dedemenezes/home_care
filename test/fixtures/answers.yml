@@ -1,5 +1,6 @@
 right_known_answer:
-  round: completed
-  question: known_answer
-  user_answer: known_answer_right_option
+  id: 1
+  round_id: 2
+  question_id: 3
+  user_answer_id: 9
   correct: true

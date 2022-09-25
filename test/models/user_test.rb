@@ -1,11 +1,6 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  # setup do
-  #   round = rounds(:completed)
-  #   round.complete!
-  # end
-
   test 'assert #right_answers returns amount of correct answers' do
     user = users(:doc)
     expect_equal 0, Answer.count

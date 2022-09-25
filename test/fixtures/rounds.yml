@@ -1,13 +1,15 @@
 first:
-  user: doc
-  game: trivia
+  id: 1
+  user_id: 1
+  game_id: 1
   completed: false
   points_given: false
   level: 1
 
 completed:
-  user: doc
-  game: finishing
+  id: 2
+  user_id: 1
+  game_id: 2
   completed: true
   points_given: false
   level: 1
