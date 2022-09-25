@@ -17,7 +17,7 @@ class PlayGamesTest < ApplicationSystemTestCase
     choose 'Is important', allow_label_click: true
     click_button 'Submit'
     # without sleep it doesn't find the answer 🤔
-    sleep(1)
+    sleep(2)
     assert_equal 1, round.answers.count(&:correct)
     assert_text questions(:why_unit_tests).content
   end

@@ -9,7 +9,6 @@ class DoctorsTest < ApplicationSystemTestCase
     visit '/doctors'
 
     assert_selector ".card__user", count: 1
-    assert_selector '.card__user a', count: 1
   end
 
   test "visiting the show" do
