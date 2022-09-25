@@ -13,3 +13,11 @@ completed:
   completed: true
   points_given: false
   level: 1
+
+brande_new:
+  id: 3
+  user_id: 2
+  game_id: 3
+  completed: false
+  points_given: false
+  level: 1

@@ -19,6 +19,20 @@ known_answer:
   game_id: 2
   level: 1
 
+brande_new_question_1:
+  id: 4
+  content: "brande_new_question_1"
+  answer: "{\"a\":\"brand_new_1\"}"
+  game_id: 3
+  level: 1
+
+brande_new_question_2:
+  id: 5
+  content: "brande_new_question_2?"
+  answer: "{\"a\":\"brande_new_question_2\"}"
+  game_id: 3
+  level: 1
+
 # not_trivia:
 #   content: "not trivia?"
 #   answer: "{\"a\":\"Not trivia\"}"

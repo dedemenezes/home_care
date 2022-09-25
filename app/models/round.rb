@@ -15,8 +15,12 @@ class Round < ApplicationRecord
     questions.sort_by { |q| q.level }.reverse.first.id == question.id
   end
 
+  def correct_answers_count
+    answers.count(&:correct)
+  end
+
   def result_in_percent
-    (answers.count(&:correct).fdiv(5) * 100).to_i
+    (correct_answers_count.fdiv(5) * 100).to_i
   end
 
   def completed!

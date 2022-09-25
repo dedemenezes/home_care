@@ -4,3 +4,16 @@ right_known_answer:
   question_id: 3
   user_answer_id: 9
   correct: true
+
+first_round_correct:
+  id: 2
+  round_id: 1
+  question_id: 1
+  user_answer_id: 1
+  correct: true
+first_round_wrong:
+  id: 3
+  round_id: 1
+  question_id: 2
+  user_answer_id: 6
+  correct: false

@@ -24,7 +24,7 @@ class RoundsController < ApplicationController
 
   def score
     @round = Round.find(params[:id])
-    if @round.answers.count(&:correct) == 5 && !@round.completed?
+    if @round.correct_answers_count == 5 && !@round.completed?
       @round.completed!
     end
     if @round.completed? && @round.points_not_given?

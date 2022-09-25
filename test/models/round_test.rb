@@ -10,4 +10,10 @@ class RoundTest < ActiveSupport::TestCase
     assert_equal true, @round.completed?
     # assert_equal true, Round.last.completed?
   end
+
+  test '#correct_answers_count' do
+    assert_equal 1, @round.correct_answers_count
+    @round.answers.each(&:correct!)
+    assert_equal 2, @round.correct_answers_count
+  end
 end

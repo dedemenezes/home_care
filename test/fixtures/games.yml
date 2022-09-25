@@ -8,3 +8,7 @@ trivia:
 finishing:
   id: 2
   name: 'finishing'
+
+new_game:
+  id: 3
+  name: 'new game'
