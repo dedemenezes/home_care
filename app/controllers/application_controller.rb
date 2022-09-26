@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :authenticate_user!
-  before_action :set_twilio_sid_to_session
+  before_action :set_twilio_sid_to_session, if: :twilio_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   after_action :verify_authorized, except: [:index, :doctors], unless: :skip_pundit?
@@ -58,5 +58,9 @@ class ApplicationController < ActionController::Base
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)|(^twilio)/
+  end
+
+  def twilio_controller?
+    params[:controller] =~ /(^twilio)/
   end
 end
