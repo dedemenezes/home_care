@@ -16,4 +16,22 @@ class RoundTest < ActiveSupport::TestCase
     @round.answers.each(&:correct!)
     assert_equal 2, @round.correct_answers_count
   end
+
+  test '#set_level' do
+    round = Round.new(game: games(:trivia), user: users(:doc))
+    expected = 1
+    actual = round.set_level.level
+    assert_equal(1, actual)
+    round.save!
+
+    round = Round.new(game: games(:trivia), user: users(:doc))
+    expected = 1
+    actual = round.set_level.level
+    assert_equal(1, actual)
+
+    expected = 2
+    round = Round.new(game: games(:finishing), user: users(:doc))
+    actual = round.set_level.level
+    assert_equal(2, actual)
+  end
 end
