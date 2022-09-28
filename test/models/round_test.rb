@@ -34,4 +34,13 @@ class RoundTest < ActiveSupport::TestCase
     actual = round.set_level.level
     assert_equal(2, actual)
   end
+
+  def test_last_question
+    question = questions(:why_unit_tests)
+    actual = @round.last_question? question
+    assert(actual)
+    question = questions(:why_tests)
+    actual = @round.last_question? question
+    refute(actual)
+  end
 end

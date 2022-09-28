@@ -12,7 +12,7 @@ class Round < ApplicationRecord
   end
 
   def last_question?(question)
-    questions.sort_by { |q| q.level }.reverse.first.id == question.id
+    questions.sort_by(&:level).reverse.first.id == question.id
   end
 
   def correct_answers_count
