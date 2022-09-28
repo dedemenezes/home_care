@@ -43,4 +43,10 @@ class RoundTest < ActiveSupport::TestCase
     actual = @round.last_question? question
     refute(actual)
   end
+
+  def test_questions_returns_all_questions_for_round_level
+    assert_respond_to(@round, :questions)
+    assert_equal(2, @round.questions.size)
+    assert_instance_of(Question, @round.questions.first)
+  end
 end
