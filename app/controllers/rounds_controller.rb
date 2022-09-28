@@ -35,7 +35,7 @@ class RoundsController < ApplicationController
       # need to create a join table
       # @round.game.update(level: @round.game.level += 1)
       current_user.update(points: current_user.points += 10)
-      @round.update(points_given: true, level: @round.level += 1)
+      @round.update(points_given: true)
     end
     authorize @round
   end
