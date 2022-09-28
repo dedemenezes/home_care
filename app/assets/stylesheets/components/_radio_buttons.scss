@@ -17,6 +17,10 @@
   margin-bottom: 8px;
 }
 
+.hide-and-keep + label:hover {
+  background-color: $light-live-pinky;
+}
+
 .hide-and-keep:checked + label {
   background-color: $light-live-pinky;
   border: 1px solid $pansy-purple-opacity;
