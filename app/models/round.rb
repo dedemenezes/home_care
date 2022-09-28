@@ -41,8 +41,7 @@ class Round < ApplicationRecord
   end
 
   def set_level
-    completed_rounds = user.rounds.where(game: game, completed: true)
-    if completed_rounds.empty?
+    if user.completed_rounds.empty?
       self.level = 1
     else
       self.level = completed_rounds.order(level: :desc).first.level

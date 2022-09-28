@@ -7,4 +7,12 @@ class UserTest < ActiveSupport::TestCase
     actual = user.right_answers_count
     assert_equal expected, actual
   end
+
+  test 'assert #completed_rounds returns only rounds completed' do
+    user = users(:doc)
+    assert_respond_to(user, :completed_rounds)
+    actual = user.completed_rounds(games(:finishing))
+    refute_empty(actual)
+    assert_instance_of(Round, actual.first)
+  end
 end

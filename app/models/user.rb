@@ -21,6 +21,10 @@ class User < ApplicationRecord
     sum
   end
 
+  def completed_rounds(game)
+    rounds.where(game: game, completed: true)
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end
