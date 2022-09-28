@@ -5,7 +5,6 @@ class RoundsController < ApplicationController
     @question = Question.where(level: @round.level).first
     @question = Question.find(params[:question]) if params[:question].present?
     @answer = Answer.new
-    binding.pry
     authorize @round
   end
 
@@ -25,7 +24,6 @@ class RoundsController < ApplicationController
 
   def score
     @round = Round.find(params[:id])
-    binding.pry
     if @round.correct_answers_count == 5 && !@round.completed?
       @round.completed!
     end
