@@ -2,7 +2,7 @@ class RoundsController < ApplicationController
   def show
     @round = Round.find(params[:id])
     # eliminar questoes respondidas no round vencedor
-    @question = Question.where(level: @round.level).first
+    @question = Question.where(level: @round.level, game: @round.game).first
     @question = Question.find(params[:question]) if params[:question].present?
     @answer = Answer.new
     authorize @round

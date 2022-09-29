@@ -11,7 +11,7 @@
       <div class="col-4">
         <div class="centered-column">
           <%= simple_form_for [game, @round] do |f| %>
-            <%= button_tag :submit, data: { disable_with: 'Create round'}, id: 'create_trivia', class: 'game__icon' do %>
+            <%= button_tag :submit, data: { disable_with: 'Create round'}, id: "create_#{game.name.gsub(' ', '_')}", class: 'game__icon' do %>
               <%#= yield %>
               <%= icon 'fa-solid', game.icon_name %>
             <% end %>
