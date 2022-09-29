@@ -3,6 +3,8 @@ require "test_helper"
 class RoundTest < ActiveSupport::TestCase
   setup do
     @round = rounds(:first)
+    @q_one = questions(:why_tests)
+    @q_two = questions(:why_unit_tests)
   end
   test 'assert #completed! mark round as completed' do
     assert_equal false, @round.completed?
@@ -36,17 +38,26 @@ class RoundTest < ActiveSupport::TestCase
   end
 
   def test_last_question
-    question = questions(:why_unit_tests)
-    actual = @round.last_question? question
-    assert(actual)
     question = questions(:why_tests)
     actual = @round.last_question? question
     refute(actual)
+    question = questions(:q_three_game_one)
+    actual = @round.last_question? question
+    assert(actual)
   end
 
   def test_questions_returns_all_questions_for_round_level
     assert_respond_to(@round, :questions)
-    assert_equal(2, @round.questions.size)
+    assert_equal(3, @round.questions.size)
     assert_instance_of(Question, @round.questions.first)
+  end
+
+  # def test_assign_last_question_asked_when_passed_question
+  #   assert_equal @q_two, @round.last_question_asked(question)
+  # end
+
+  def test_next_question
+    assert_instance_of Question, @round.next_question
+    assert_equal 'Question 3', @round.next_question.content
   end
 end

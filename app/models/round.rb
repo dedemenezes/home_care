@@ -8,7 +8,17 @@ class Round < ApplicationRecord
   has_many :answers, dependent: :destroy
 
   def questions
-    game.questions.where(level: level)
+    game.questions.where(level: level).order(:id)
+  end
+
+  def next_question
+    return questions.first if last_question_asked.nil?
+
+    questions.slice(last_question_asked.id, 1).first
+  end
+
+  def last_question_asked
+    answers.last&.question
   end
 
   def last_question?(question)
