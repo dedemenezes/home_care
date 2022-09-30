@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :first_name, uniqueness: { scope: :last_name }
+  validates :country, presence: true
+
   geocoded_by :address
   before_save :set_default_image_url
   after_validation :geocode, if: :will_save_change_to_city?

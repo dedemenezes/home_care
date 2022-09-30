@@ -13,8 +13,7 @@ class Round < ApplicationRecord
 
   def next_question
     return questions.first if last_question_asked.nil?
-
-    questions.slice(last_question_asked.id, 1).first
+    (questions - answered_questions).first
   end
 
   def last_question_asked

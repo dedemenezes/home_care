@@ -2,8 +2,8 @@ require "application_system_test_case"
 
 class PlayGamesTest < ApplicationSystemTestCase
   setup do
-    @q_one = questions(:brande_new_question_1)
-    @q_two = questions(:brande_new_question_2)
+    @q_one = questions(:game_three_q_one)
+    @q_two = questions(:game_three_q_two)
     @marty = users(:marty)
     login_as @marty
   end

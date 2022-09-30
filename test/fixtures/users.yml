@@ -8,6 +8,7 @@ doc:
   role: 'doctor'
   latitude: -5.0384743
   longitude: -42.7462329
+  country: 'Brazil'
 
 marty:
   id: 2
@@ -18,4 +19,5 @@ marty:
   longitude: -42.7462329
   first_name: "Marty"
   last_name: "McFly"
+  country: 'Brazil'
   role: 'patient'

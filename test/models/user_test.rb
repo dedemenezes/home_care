@@ -1,6 +1,37 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
+  class Validations < ActiveSupport::TestCase
+    setup do
+      @user = users(:marty)
+    end
+
+    test 'valid with valid attributes' do
+      assert @user.valid?
+    end
+
+    test 'invalid without country' do
+      @user.country = nil
+      assert @user.invalid?
+    end
+
+    test 'first name and last name must be unique in scope' do
+      user = User.new(first_name: "Marty",
+                      last_name: "McFly")
+      user.valid?
+      assert user.errors.key?(:first_name)
+
+      user.first_name = "Marquinhos"
+      user.valid?
+      refute user.errors.key?(:first_name)
+
+      user.last_name = "TaVoando"
+      user.valid?
+      refute user.errors.key?(:first_name)
+
+    end
+  end
+
   test 'assert #right_answers returns amount of correct answers' do
     user = users(:doc)
     expected = 1

@@ -9,4 +9,16 @@ include ActiveRecord::AttributeMethods::Dirty
     self.correct = true
     save
   end
+
+  def correct?
+    set_correct
+    correct
+  end
+
+  private
+
+  def set_correct
+    self.correct = user_answer.right?
+    save
+  end
 end

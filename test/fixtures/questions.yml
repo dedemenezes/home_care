@@ -19,17 +19,17 @@ known_answer:
   game_id: 2
   level: 1
 
-brande_new_question_1:
+game_three_q_one:
   id: 4
-  content: "brande_new_question_1?"
-  answer: "{\"a\":\"brande_new_question_1_right\"}"
+  content: "game_three_q_one?"
+  answer: "{\"a\":\"question_one_game_three_right\"}"
   game_id: 3
   level: 1
 
-brande_new_question_2:
+game_three_q_two:
   id: 5
-  content: "brande_new_question_2?"
-  answer: "{\"a\":\"brande_new_question_2_right\"}"
+  content: "game_three_q_two?"
+  answer: "{\"a\":\"question_two_game_three_right\"}"
   game_id: 3
   level: 1
 
