@@ -1,5 +1,7 @@
 class Answer < ApplicationRecord
-  belongs_to :round
+include ActiveRecord::AttributeMethods::Dirty
+
+  belongs_to :round, counter_cache: true
   belongs_to :question
   belongs_to :user_answer, class_name: 'Option'
 
