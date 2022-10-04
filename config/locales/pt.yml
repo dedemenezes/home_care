@@ -6,6 +6,7 @@ pt:
   sign_up: 'Registrar'
   doctors: 'doutores'
   edit: 'editar'
+  edit_profile: 'editar perfil'
   profile: 'perfil'
   find_carer: 'buscar cuidador'
   find_carers: 'buscar cuidadores'
