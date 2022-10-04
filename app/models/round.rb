@@ -6,6 +6,7 @@ class Round < ApplicationRecord
   belongs_to :game
   # has_many :questions, through: :game
   has_many :answers, dependent: :destroy
+  before_create :set_level
 
   def questions
     game.questions.where(level: level).order(:id)
