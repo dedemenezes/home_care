@@ -7,6 +7,7 @@ pt:
   doctors: 'doutores'
   edit: 'editar'
   edit_profile: 'editar perfil'
+  passed_to: 'Você passou para o'
   profile: 'perfil'
   find_carer: 'buscar cuidador'
   find_carers: 'buscar cuidadores'
@@ -21,7 +22,9 @@ pt:
   account: 'conta'
   well_done: 'Muito bem'
   round_result: 'Resultado da rodada'
-  next_level: 'Próximo level'
+  next_level: 'Próximo nível'
+  not_this_time: 'não foi dessa vez'
+  level: 'nível'
   simple_form:
     labels:
       user:
