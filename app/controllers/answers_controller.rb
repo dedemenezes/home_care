@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
   def create
+    # binding.pry
     set_round
     set_option
     set_question
@@ -7,8 +8,13 @@ class AnswersController < ApplicationController
     authorize @answer
     if @answer.save
       @answer.correct! if @option.right?
+
       if @round.last_question? @question
-        redirect_to score_round_path(@round)
+        respond_to do |format|
+          format.text { render partial: "questions/show", locals: {question: @question, answer: @answer, round: @round} }
+          format.html { redirect_to score_round_path(@round) }
+        end
+        # redirect_to score_round_path(@round)
       else
         @next_question = @round.next_question
         redirect_to round_path(@round, question: @next_question.id)
