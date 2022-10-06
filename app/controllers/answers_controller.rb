@@ -1,23 +1,33 @@
 class AnswersController < ApplicationController
   def create
-    # binding.pry
     set_round
     set_option
     set_question
     build_answer
     authorize @answer
-    if @answer.save
+    if @answer.save!
       @answer.correct! if @option.right?
 
       if @round.last_question? @question
         respond_to do |format|
-          format.text { render partial: "questions/show", locals: {question: @question, answer: @answer, round: @round} }
+          format.text do
+            FinishRound.new(@round).complete.give_points_for(current_user)
+            render(
+              partial: "rounds/score",
+              locals: { round: @round },
+              formats: [:html]
+            )
+          end
           format.html { redirect_to score_round_path(@round) }
         end
         # redirect_to score_round_path(@round)
       else
         @next_question = @round.next_question
-        redirect_to round_path(@round, question: @next_question.id)
+        # redirect_to round_path(@round, question: @next_question.id)
+        respond_to do |format|
+          format.text { render partial: "questions/show", locals: {question: @next_question, answer: Answer.new, round: @round}, formats: [:html] }
+          format.html { redirect_to round_path(@round, question: @next_question.id) }
+        end
       end
     else
       render 'rounds/show'

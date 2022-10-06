@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="round__card mb-3">
+    <%= content_tag :div, class: 'score__header--layout' do %>
+      <div class="d-flex align-items-center justify-content-start">
+        <small class='avatar-mine-3 mr-min'><%= current_user.level %></small>
+        <p class="mb-0"><%= current_user.email.match(/(\w+)/)[0] %></p>
+      </div>
+      <div class="d-flex align-items-center justify-content-end">
+        <div class="ranking">
+          <%= icon 'fa-regular', 'star' %>
+          <small><%= current_user.right_answers_count %></small>
+        </div>
+      </div>
+    <% end %>
+    <div class="score__round--layout">
+      <div class="score__level--left flex-centered">
+        <%= render 'shared/circle_progress_bar', percent: @round.result_in_percent %>
+        <p class="mb-0"><%= t('round_result') %></p>
+      </div>
+      <div class="score__level--right flex-centered">
+        <%= render 'shared/circle_progress_bar', percent: current_user.points %>
+        <p class="mb-0"><%= t('next_level') %></p>
+      </div>
+    </div>
+  </div>
+  <div class="score__info--layout round__card">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="game__icon">
+        <%= icon 'fa-solid', @round.game.icon_name %>
+      </div>
+    </div>
+    <% if @round.completed? %>
+      <div class="score__action">
+        <h1><%= t('well_done') %>!</h1>
+        <p><%= t('passed_to') %> <span class="info__sub"><%= t('level') %> <%= @round.level + 1 %></span></p>
+        <%= link_to 'Next round', game_rounds_path(@round.game), data: { turbo_method: 'POST' }, class: 'btn btn-primary w-100 rounded-pill btn-animation' %>
+      </div>
+    <% else %>
+      <div class="score__action">
+        <h1>Oops!</h1>
+        <p><%= t('not_this_time') %> <span class="info__sub"><%= t('level') %> <%= @round.level %></span></p>
+        <%= link_to 'Try again!', game_rounds_path(@round.game), data: { turbo_method: 'POST' }, class: 'btn btn-primary w-100 rounded-pill btn-animation' %>
+        <%#= link_to 'Try again', round_path(@round) , class: 'btn btn-primary rounded-pill btn-animation' %>
+      </div>
+    <% end %>
+  </div>
+</div>
