@@ -36,7 +36,9 @@ en:
   sign_up: 'Sign up'
   doctors: 'doctors'
   edit: 'edit'
+  edit_profile: 'edit profile'
   profile: 'profile'
+  passed_to: 'You just passed to'
   find_carer: 'find carer'
   find_carers: 'find carers'
   home: 'Home'
@@ -51,6 +53,8 @@ en:
   well_done: 'Well done'
   round_result: 'Round result'
   next_level: 'Next level'
+  level: 'level'
+  not_this_time: 'not this time'
   simple_form:
     labels:
       user:

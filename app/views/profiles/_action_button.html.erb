@@ -1,0 +1,12 @@
+<div class="profile__action btn-animation">
+  <%= link_to path, class: 'link-mine' do %>
+    <div class="row">
+      <div class="col-10">
+        <%= t(text).capitalize %>
+      </div>
+      <div class="col-2">
+        <%= icon 'fa-solid', icon_name, class: 'icon--hover' %>
+      </div>
+    </div>
+  <% end %>
+</div>

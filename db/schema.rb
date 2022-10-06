@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_25_051357) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_30_002236) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_25_051357) do
     t.boolean "completed", default: false
     t.boolean "points_given", default: false
     t.integer "level", default: 1
+    t.integer "answers_count"
     t.index ["game_id"], name: "index_rounds_on_game_id"
     t.index ["user_id"], name: "index_rounds_on_user_id"
   end

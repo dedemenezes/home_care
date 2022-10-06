@@ -30,3 +30,8 @@
 .score__level--right {
   padding-left: 6px;
 }
+.score__info--layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: start;
+}

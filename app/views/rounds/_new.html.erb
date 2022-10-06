@@ -1,5 +1,6 @@
 <%= simple_form_for [game, round] do |f| %>
-  <%= button_tag :submit, data: { disable_with: 'Create round'}, id: "create_#{game.name.downcase}", class: 'game__icon' do %>
+  <%= button_tag :submit, data: { disable_with: 'Create round'}, id: "create_#{game.name.downcase}", class: 'game__icon btn-animation' do %>
     <%= yield %>
   <% end %>
 <% end %>
+<%# disabled: (game.rounds.where(user: current_user, completed: true).count == 5) %>

@@ -6,13 +6,23 @@ class Round < ApplicationRecord
   belongs_to :game
   # has_many :questions, through: :game
   has_many :answers, dependent: :destroy
+  before_create :set_level
 
   def questions
-    game.questions.where(level: level)
+    game.questions.where(level: level).order(:id)
+  end
+
+  def next_question
+    return questions.first if last_question_asked.nil?
+    (questions - answered_questions).first
+  end
+
+  def last_question_asked
+    answers.last&.question
   end
 
   def last_question?(question)
-    questions.sort_by { |q| q.level }.reverse.first.id == question.id
+    questions.sort_by(&:level).reverse.first.id == question.id
   end
 
   def correct_answers_count
@@ -41,11 +51,12 @@ class Round < ApplicationRecord
   end
 
   def set_level
-    completed_rounds = user.rounds.where(game: game, completed: true)
-    if completed_rounds.empty?
+    # binding.pry
+    if user.completed_rounds(game).empty?
       self.level = 1
     else
-      self.level = completed_rounds.order(level: :desc).first.level
+      self.level = user.completed_rounds(game).order(level: :desc).first.level + 1
     end
+    self
   end
 end

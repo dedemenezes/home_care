@@ -17,6 +17,10 @@
   margin-bottom: 8px;
 }
 
+.hide-and-keep + label:hover {
+  background-color: $light-live-pinky;
+}
+
 .hide-and-keep:checked + label {
   background-color: $light-live-pinky;
   border: 1px solid $pansy-purple-opacity;
@@ -25,3 +29,31 @@
 .no-padding .form-check {
   padding-left: 0;
 }
+// #answer_user_answer_id_1 + label {
+//   background: image-url('a-solid.svg'), $light-dead-pinky;
+//   background-repeat: no-repeat;
+//   background-position-x: 24px;
+//   background-size: .825rem;
+//   background-position-y: center;
+// }
+// #answer_user_answer_id_2 + label {
+//   background: image-url('a-solid.svg'), $light-dead-pinky;
+//   background-repeat: no-repeat;
+//   background-position-x: 24px;
+//   background-size: .825rem;
+//   background-position-y: center;
+// }
+// #answer_user_answer_id_1 + label {
+//   background: image-url('a-solid.svg'), $light-dead-pinky;
+//   background-repeat: no-repeat;
+//   background-position-x: 24px;
+//   background-size: .825rem;
+//   background-position-y: center;
+// }
+// #answer_user_answer_id_1 + label {
+//   background: image-url('a-solid.svg'), $light-dead-pinky;
+//   background-repeat: no-repeat;
+//   background-position-x: 24px;
+//   background-size: .825rem;
+//   background-position-y: center;
+// }

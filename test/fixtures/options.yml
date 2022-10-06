@@ -61,13 +61,35 @@ known_answer_d:
   question_id: 3
   letter: 'd'
 
-brande_new_question_1_right_option:
+question_one_game_three_right_option:
   id: 13
-  content: 'brande_new_question_1'
+  content: 'question_one_game_three_right'
   question_id: 4
   letter: 'a'
-brande_new_question_2_right_option:
+
+question_one_game_three_wrong_option:
+  id: 17
+  content: 'question_one_game_three_wrong'
+  question_id: 4
+  letter: 'b'
+
+question_two_game_three_right_option:
   id: 14
-  content: 'brande_new_question_2'
+  content: 'question_two_game_three_right'
   question_id: 5
   letter: 'a'
+
+q_three_game_one_right_option:
+  id: 15
+  content: 'right_answer'
+  question_id: 6
+  letter: 'a'
+
+q_three_game_one_b:
+  id: 16
+  content: 'wrong_answer'
+  question_id: 6
+  letter: 'b'
+
+# please UPDATE last line
+# NOTHING BELOW HERE => last_id: 17

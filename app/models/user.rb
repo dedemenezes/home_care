@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :first_name, uniqueness: { scope: :last_name }
+  validates :country, presence: true
+
   geocoded_by :address
   before_save :set_default_image_url
   after_validation :geocode, if: :will_save_change_to_city?
@@ -19,6 +22,10 @@ class User < ApplicationRecord
     sum = 0
     rounds.each { |round| sum += round.questions.size if round.completed? }
     sum
+  end
+
+  def completed_rounds(game)
+    rounds.where(game: game, completed: true)
   end
 
   def full_name
@@ -45,5 +52,12 @@ class User < ApplicationRecord
 
   def set_default_image_url
     self.image_url = 'https://www.marketingmuses.com/wp-content/uploads/2018/01/invis-user.png' if image_url.nil?
+  end
+
+  def round_next_level_for(game)
+    completed_rounds = rounds.where(completed: true)
+    return 1 if completed_rounds.empty?
+
+    completed_rounds.order(level: :desc).first.level + 1
   end
 end

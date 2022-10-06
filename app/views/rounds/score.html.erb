@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="round__card">
+  <div class="round__card mb-3">
     <%= content_tag :div, class: 'score__header--layout' do %>
       <div class="d-flex align-items-center justify-content-start">
         <small class='avatar-mine-3 mr-min'><%= current_user.level %></small>
@@ -23,8 +23,25 @@
       </div>
     </div>
   </div>
-  <div class="score__info">
-    <h1><%= t('well_done') %>, <%= current_user.full_name %></h1>
-    <%= link_to 'Try again', round_path(@round) ,class: '' %>
+  <div class="score__info--layout round__card">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="game__icon">
+        <%= icon 'fa-solid', @round.game.icon_name %>
+      </div>
+    </div>
+    <% if @round.completed? %>
+      <div class="score__action">
+        <h1><%= t('well_done') %>!</h1>
+        <p><%= t('passed_to') %> <span class="info__sub"><%= t('level') %> <%= @round.level + 1 %></span></p>
+        <%= link_to 'Next round', game_rounds_path(@round.game), data: { turbo_method: 'POST' }, class: 'btn btn-primary w-100 rounded-pill btn-animation' %>
+      </div>
+    <% else %>
+      <div class="score__action">
+        <h1>Oops!</h1>
+        <p><%= t('not_this_time') %> <span class="info__sub"><%= t('level') %> <%= @round.level %></span></p>
+        <%= link_to 'Try again!', game_rounds_path(@round.game), data: { turbo_method: 'POST' }, class: 'btn btn-primary w-100 rounded-pill btn-animation' %>
+        <%#= link_to 'Try again', round_path(@round) , class: 'btn btn-primary rounded-pill btn-animation' %>
+      </div>
+    <% end %>
   </div>
 </div>
