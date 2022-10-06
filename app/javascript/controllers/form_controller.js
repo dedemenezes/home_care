@@ -2,13 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="form"
 export default class extends Controller {
-  static targets = ['submit', 'option']
+  static targets = ['form', 'submit', 'option']
   connect() {
     console.log('connected');
   }
 
   submitWithKeyboard(event) {
-    console.log(this.element.action);
+    // console.log(this.element.action);
     if (['a', 's', 'd', 'f'].includes(event.key)) {
       switch(event.key) {
         case 'a':
@@ -16,13 +16,16 @@ export default class extends Controller {
           this.submitOption()
           break
         case 's':
-          console.log('sumit option b')
+          this.optionTargets[1].checked = true
+          this.submitOption()
           break
         case 'd':
-          console.log('sumit option c')
+          this.optionTargets[2].checked = true
+          this.submitOption()
           break
         case 'f':
-          console.log('sumit option d')
+          this.optionTargets[3].checked = true
+          this.submitOption()
           break
         default:
           console.log(`sorry, we are out of ${event.key}`);
@@ -31,15 +34,15 @@ export default class extends Controller {
   }
 
   submitOption(option) {
-    fetch(this.element.action, {
+    fetch(this.formTarget.action, {
       method: 'POST',
       headers: { "Accept": "text/plain" },
-      body: new FormData(this.element)
+      body: new FormData(this.formTarget)
     })
       .then(response => response.text())
       .then((data) => {
         console.log(data);
-
+        this.element.outerHTML = data
       })
   }
 //   switch(expr) {

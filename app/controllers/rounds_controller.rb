@@ -24,13 +24,7 @@ class RoundsController < ApplicationController
 
   def score
     @round = Round.find(params[:id])
-    if @round.correct_answers_count == 5 && !@round.completed?
-      @round.completed!
-    end
-    if @round.completed? && @round.points_not_given?
-      current_user.update(points: current_user.points += 10)
-      @round.update(points_given: true)
-    end
+    FinishRound.new(@round).complete.give_points_for(current_user)
     authorize @round
   end
 end
