@@ -53,4 +53,11 @@ class User < ApplicationRecord
   def set_default_image_url
     self.image_url = 'https://www.marketingmuses.com/wp-content/uploads/2018/01/invis-user.png' if image_url.nil?
   end
+
+  def round_next_level_for(game)
+    completed_rounds = rounds.where(completed: true)
+    return 1 if completed_rounds.empty?
+
+    completed_rounds.order(level: :desc).first.level + 1
+  end
 end

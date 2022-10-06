@@ -46,4 +46,15 @@ class UserTest < ActiveSupport::TestCase
     refute_empty(actual)
     assert_instance_of(Round, actual.first)
   end
+
+  test 'assert #round_next_level returns the correct level' do
+    user = users(:marty)
+    game = games(:trivia)
+    actual = user.round_next_level_for game
+    assert_equal 1, actual
+
+    Round.create user: user, game: game, completed: true
+    actual = user.round_next_level_for game
+    assert_equal 2, actual
+  end
 end
