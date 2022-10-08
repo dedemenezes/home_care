@@ -9,6 +9,7 @@ class DoctorsController < ApplicationController
       lat: @doctor.latitude,
       lng: @doctor.longitude
     }
+    @consultation = Consultation.new
     authorize @doctor
 
     respond_to do |format|

@@ -24,6 +24,7 @@ pt:
   round_result: 'Resultado da rodada'
   next_level: 'Próximo nível'
   not_this_time: 'não foi dessa vez'
+  consultations: 'consultas'
   level: 'nível'
   simple_form:
     labels:

@@ -2,6 +2,10 @@
   <div class="row">
     <div class="col-lg-7 align-self-start">
       <%= render 'profiles/header', user: @doctor %>
+      <%= simple_form_for [@doctor, @consultation], html: { data: { turbo: false } } do |f| %>
+        <%= f.input :starting_at %>
+        <%= f.submit %>
+      <% end %>
     </div>
   <%= render 'shared/map', marker: @marker  %>
   </div>

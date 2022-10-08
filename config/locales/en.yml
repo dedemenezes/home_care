@@ -55,6 +55,7 @@ en:
   next_level: 'Next level'
   level: 'level'
   not_this_time: 'not this time'
+  consultations: 'consultations'
   simple_form:
     labels:
       user:

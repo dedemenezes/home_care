@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   post 'confirmation', to: 'twilio_code_confirmations#create', as: :confirm_sms
   get 'profile', to: 'profiles#show', as: :profile
   resources :doctors, only: %i[index show]
+  resources :users, only: [] do
+    resources :consultations, only: :create
+  end
+  resources :consultations, only: :index
 
   resources :games, only: :index do
     resources :rounds, only: :create
