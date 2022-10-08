@@ -1,6 +1,23 @@
 first:
-  user: doc
-  game: trivia
+  id: 1
+  user_id: 1
+  game_id: 1
+  completed: false
+  points_given: false
+  level: 1
+
+completed:
+  id: 2
+  user_id: 1
+  game_id: 2
+  completed: true
+  points_given: false
+  level: 1
+
+round_one_game_three:
+  id: 3
+  user_id: 2
+  game_id: 3
   completed: false
   points_given: false
   level: 1

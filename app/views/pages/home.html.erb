@@ -1,23 +1,15 @@
 <div class="container">
-  <div class="row justify-content-center landing--layout">
-    <div class="col-12">
-      <div class="d-flex justify-content-center align-items-center">
-        <%= image_tag 'logo.png', width: '240px' %>
-      </div>
-    </div>
-    <div class="col-12 text-center">
-      <p><%= t('welcome') %></p>
+<%# row justify-content-center landing--layout  %>
+  <div class="landing__layout text--centered">
+    <%= image_tag 'logo.png', width: '240px' %>
+    <div class="landing__header">
       <h1  id='mask'>Home Care</h1>
       <div class='landing__underline'></div>
     </div>
-    <div class="col-12">
-      <div class="d-flex justify-content-center align-items-center">
-        <% if user_signed_in? %>
-          <%= link_to t('.cta'), doctors_path, class: 'btn btn-primary btn-round rounded-circle d-flex justify-content-center align-items-center' %>
-        <% else %>
-          <%= link_to t('sign_up'), login_path, class: 'btn btn-primary btn-round rounded-circle d-flex justify-content-center align-items-center' %>
-        <% end %>
-      </div>
-    </div>
+    <% if user_signed_in? %>
+      <%= link_to t('.cta'), doctors_path, class: 'button button--upcase button--rounded' %>
+    <% else %>
+      <%= link_to t('sign_up'), login_path, class: 'button button--upcase button--rounded' %>
+    <% end %>
   </div>
 </div>

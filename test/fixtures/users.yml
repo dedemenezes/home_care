@@ -1,25 +1,23 @@
 doc:
+  id: 1
   email: 'doc@test.com'
   phone_number: "+553176-99040"
   image_url: "https://randomuser.me/api/portraits/men/53.jpg"
-  country: "Brazil"
-  city: "Carapicuíba"
-  state: "Acre"
-  street_number: "1159"
-  street: "Rua São Pedro"
   first_name: "Doc"
   last_name: "Rivers"
   role: 'doctor'
+  latitude: -5.0384743
+  longitude: -42.7462329
+  country: 'Brazil'
 
 marty:
+  id: 2
   email: 'marty@test.com'
   phone_number: "+553176-99040"
   image_url: "https://randomuser.me/api/portraits/men/53.jpg"
-  country: "Brazil"
-  city: "Rio de Janeiro"
-  state: "RJ"
-  street_number: "29"
-  street: "Rua Bambina"
+  latitude: -5.0384743
+  longitude: -42.7462329
   first_name: "Marty"
   last_name: "McFly"
+  country: 'Brazil'
   role: 'patient'

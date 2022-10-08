@@ -91,6 +91,22 @@ body {
   color: $light-dead-pinky;
 }
 
+.game__icon::after {
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $pansy-purple;
+  background-color: $red;
+  // background-image: linear-gradient(to bottom, #e68f9f, #f4909c);
+  //   background-size: cover;
+    // z-index: -1;
+}
+
+.game__icon:hover::after {
+  transform: scale(2);
+}
 
 .leaderboard__card {
   background-image: asset-url('leaderboard.png');
@@ -101,4 +117,9 @@ body {
   display: flex;
   background-repeat: no-repeat;
   background-position: top;;
+}
+
+
+.btn-shadow {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }

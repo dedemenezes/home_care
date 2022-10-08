@@ -1,5 +1,4 @@
-<div class="container">
-  <h1><%= t('games').capitalize %></h1>
+<div class="container pt-4">
   <div class="row justify-content-center">
     <div class="col-4">
       <%= render 'game', game: @games.first, round: @round %>
@@ -7,22 +6,24 @@
   </div>
 
   <div class="row justify-content-between">
-    <div class="col-4">
-      <div class="centered-column">
-        <%= simple_form_for [@games.first, @round] do |f| %>
-          <%= button_tag :submit, data: { disable_with: 'Create round'}, id: 'create_trivia', class: 'game__icon' do %>
-            <%#= yield %>
-            <%= icon 'fa-solid', @games.first.icon_name %>
+    <% @games[1..].each do |game| %>
+      <div class="col-4">
+        <div class="centered-column">
+          <%= simple_form_for [game, @round] do |f| %>
+            <%= button_tag :submit, data: { disable_with: 'Create round'}, id: "create_#{game.name.gsub(' ', '_')}", class: 'game__icon' do %>
+              <%#= yield %>
+              <%= icon 'fa-solid', game.icon_name %>
+            <% end %>
           <% end %>
-        <% end %>
-        <%#= render 'rounds/new', game: @games.first, round: @round do %>
-        <%# end %>
-        <h2><%= @games.first.name %></h2>
+          <%#= render 'rounds/new', game: game, round: @round do %>
+          <%# end %>
+          <h2><%= game.name %></h2>
+        </div>
       </div>
-    </div>
+    <% end %>
     <%# <div class="col-4">
       <%= render 'game', game: @games.first, round: @round %>
-    </div> %>
+    <%# </div> %>
   </div>
   <div class="row justify-content-center">
     <div class="col-6">

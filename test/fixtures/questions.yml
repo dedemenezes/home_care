@@ -2,14 +2,42 @@ why_tests:
   id: 1
   content: "Why tests?"
   answer: "{\"a\":\"Is important\"}"
-  game: trivia
+  game_id: 1
   level: 1
 
 why_unit_tests:
   id: 2
   content: "Why unit tests?"
   answer: "{\"a\":\"Is important\"}"
-  game: trivia
+  game_id: 1
+  level: 1
+
+known_answer:
+  id: 3
+  content: "You know alright?"
+  answer: "{\"a\":\"Is important\"}"
+  game_id: 2
+  level: 1
+
+game_three_q_one:
+  id: 4
+  content: "game_three_q_one?"
+  answer: "{\"a\":\"question_one_game_three_right\"}"
+  game_id: 3
+  level: 1
+
+game_three_q_two:
+  id: 5
+  content: "game_three_q_two?"
+  answer: "{\"a\":\"question_two_game_three_right\"}"
+  game_id: 3
+  level: 2
+
+q_three_game_one:
+  id: 6
+  content: "Question 3"
+  answer: "{\"a\":\"right_answer\"}"
+  game_id: 1
   level: 1
 
 # not_trivia:

@@ -1,0 +1,29 @@
+<div class="round-layout" data-controller="form">
+  <section>
+    <div class="row">
+      <div class="col-12">
+        <div class="question__card d-flex justify-content-center align-items-center p-3 text-center border border-primary bg-secondary rounded-mine text-white b-shadow">
+          <h2><%= question.content %></h2>
+            <p><%= question.level %></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%= simple_form_for [round, answer], html: { novalidate: true, class: 'form-layout', data: { action: 'keyup@window->form#submitWithKeyboard',  form_target: 'form' } } do |f| %>
+    <%= f.association :user_answer,
+                      collection: question.options,
+                      input_html: {
+                        class: "hide-and-keep",
+                        data: { form_target: 'option' }
+                      },
+                      wrapper_html: {
+                        class: " #{right_class_to_option_radio_button(answer)} no-padding"
+                      },
+                      label: '',
+                      label_method: :content,
+                      value_method: :id,
+                      required: false,
+                      as: :radio_buttons %>
+    <%= f.submit 'Submit', class: 'btn btn-primary rounded-pill w-100 mb-3' %>
+  <% end %>
+</div>

@@ -1,24 +1,20 @@
 # require "application_system_test_case"
 
-# class PlayGamesTest < ApplicationSystemTestCase
-#   test 'answering one question' do
-#     @q_one = questions(:why_tests)
-#     @q_two = questions(:why_unit_tests)
-#     doc = users(:doc)
-#     round = rounds(:first)
-#     login_as doc
-#     visit "/rounds/#{round.id}"
-#     assert_text 'Trivia'
-#     assert_text questions(:why_tests).content
-#     assert_text options(:why_tests_right_option).content
-#     assert_text options(:why_tests_b).content
-#     assert_text options(:why_tests_c).content
-#     assert_text options(:why_tests_d).content
-#     choose 'Is important', allow_label_click: true
-#     click_button 'Submit'
-#     # without sleep it doesn't find the answer 🤔
-#     sleep(1)
-#     assert_equal 1, Answer.count
-#     assert_text questions(:why_unit_tests).content
-#   end
-# end
+class PlayGamesTest < ApplicationSystemTestCase
+  setup do
+    @q_one = questions(:game_three_q_one)
+    @q_two = questions(:game_three_q_two)
+    @marty = users(:marty)
+    login_as @marty
+  end
+
+  test 'creating new round' do
+    visit '/games'
+    assert_text 'new game'
+    assert_selector 'h1', text: 'Games'
+    assert_selector 'h2', text: @q_one.game.name
+    assert_selector 'form#new_round', count: 3
+    click_on 'create_new_game'
+    assert_selector 'h2', text: @q_one.content
+  end
+end

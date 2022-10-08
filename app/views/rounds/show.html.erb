@@ -1,32 +1,6 @@
-<div class="container round-layout">
+<div class="container pt-4">
   <div class="game_banner">
-    <h1><%= @round.game.name %></h1>
+    <h1><%#= @round.game.name %></h1>
   </div>
-  <section>
-    <div class="row">
-      <div class="col-12">
-        <div class="question__card d-flex justify-content-center align-items-center p-3 text-center border border-primary bg-secondary rounded-mine text-white b-shadow">
-          <h2><%= @question.content %></h2>
-        </div>
-      </div>
-    </div>
-  </section>
-  <%= simple_form_for [@round, @answer], html: { novalidate: true, class: 'form-layout' } do |f| %>
-    <%= f.association :user_answer,
-                      collection: @question.options,
-                      input_html: {
-                        class: "hide-and-keep"
-
-                      },
-                      wrapper_html: {
-                        class: " #{right_class_to_option_radio_button(@answer)} no-padding"
-                      },
-                      label: 'Answer',
-                      label_method: :content,
-                      value_method: :id,
-                      required: false,
-                      as: :radio_buttons %>
-    <%= f.submit 'Submit', class: 'btn btn-primary rounded-pill w-100 mb-3' %>
-  <% end %>
-
+  <%= render 'questions/show', question: @question, round: @round, answer: @answer %>
 </div>

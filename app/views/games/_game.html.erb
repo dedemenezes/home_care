@@ -1,6 +1,14 @@
 <div class="centered-column">
-  <%= render 'rounds/new', game: game, round: round do %>
-    <%= icon 'fa-solid', game.icon_name %>
+  <% if game.completed? current_user %>
+    COMPLETED!
+  <% else %>
+    <%= render 'rounds/new', game: game, round: round do %>
+      <%= icon 'fa-solid', game.icon_name %>
+    <% end %>
+    <h2>
+      <span class="slide--left-anim" style="display: block; text-align: center;"><%= game.name %></span>
+      <span class="slide--right-anim" style="display: block; text-align: center;">Level: <%= current_user.round_next_level_for(game) %></span>
+    </h2>
+
   <% end %>
-  <h2><%= game.name %></h2>
 </div>

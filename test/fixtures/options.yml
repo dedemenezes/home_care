@@ -1,38 +1,95 @@
 why_tests_right_option:
+  id: 1
   content: 'Is important'
   question_id: 1
   letter: 'a'
 why_tests_b:
+  id: 2
   content: 'improve code maintainance'
   question_id: 1
   letter: 'b'
 why_tests_c:
+  id: 3
   content: 'Is good'
   question_id: 1
   letter: 'c'
 why_tests_d:
+  id: 4
   content: 'Is professional'
   question_id: 1
   letter: 'd'
 
 why_unit_right_option:
+  id: 5
   content: 'Is important'
   question_id: 2
   letter: 'a'
 why_unit_b:
+  id: 6
   content: 'improve code maintainance'
   question_id: 2
   letter: 'b'
 why_unit_c:
+  id: 7
   content: 'Is good'
   question_id: 2
   letter: 'c'
 why_unit_d:
+  id: 8
   content: 'Is professional'
   question_id: 2
   letter: 'd'
 
-# not_trivia_right_option:
-#   content: 'Not trivia'
-#   question: not_trivia
-#   letter: 'd'
+known_answer_right_option:
+  id: 9
+  content: 'Is important'
+  question_id: 3
+  letter: 'a'
+known_answer_b:
+  id: 10
+  content: 'improve code maintainance'
+  question_id: 3
+  letter: 'b'
+known_answer_c:
+  id: 11
+  content: 'Is good'
+  question_id: 3
+  letter: 'c'
+known_answer_d:
+  id: 12
+  content: 'Is professional'
+  question_id: 3
+  letter: 'd'
+
+question_one_game_three_right_option:
+  id: 13
+  content: 'question_one_game_three_right'
+  question_id: 4
+  letter: 'a'
+
+question_one_game_three_wrong_option:
+  id: 17
+  content: 'question_one_game_three_wrong'
+  question_id: 4
+  letter: 'b'
+
+question_two_game_three_right_option:
+  id: 14
+  content: 'question_two_game_three_right'
+  question_id: 5
+  letter: 'a'
+
+q_three_game_one_right_option:
+  id: 15
+  content: 'right_answer'
+  question_id: 6
+  letter: 'a'
+
+q_three_game_one_b:
+  id: 16
+  content: 'wrong_answer'
+  question_id: 6
+  letter: 'b'
+
+# please UPDATE last line
+# NOTHING BELOW HERE => last_id: 17
