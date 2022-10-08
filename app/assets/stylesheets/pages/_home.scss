@@ -31,7 +31,7 @@
   }
 }
 
-.landing__layout--centered {
+.text--centered {
   text-align: center;
 }
 
@@ -62,7 +62,7 @@
   -webkit-animation-timing-function: linear;
 }
 
-@-webkit-keyframes wave-animation
+@keyframes wave-animation
 
   {
   0% {
