@@ -21,3 +21,15 @@ marty:
   last_name: "McFly"
   country: 'Brazil'
   role: 'patient'
+
+dede:
+  id: 3
+  email: 'dede@test.com'
+  phone_number: "+553176-99040"
+  image_url: "https://randomuser.me/api/portraits/men/53.jpg"
+  latitude: -5.0384744
+  longitude: -42.7462329
+  first_name: "dede"
+  last_name: "menezes"
+  country: 'Brazil'
+  role: 'patient'

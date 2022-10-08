@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_30_002236) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_08_201213) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_002236) do
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["round_id"], name: "index_answers_on_round_id"
     t.index ["user_answer_id"], name: "index_answers_on_user_answer_id"
+  end
+
+  create_table "consultations", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.string "location"
+    t.integer "price"
+    t.datetime "starting_at"
+    t.bigint "doctor_id"
+    t.bigint "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_consultations_on_doctor_id"
+    t.index ["patient_id"], name: "index_consultations_on_patient_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -99,6 +112,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_002236) do
   add_foreign_key "answers", "options", column: "user_answer_id"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "rounds"
+  add_foreign_key "consultations", "users", column: "doctor_id"
+  add_foreign_key "consultations", "users", column: "patient_id"
   add_foreign_key "options", "questions"
   add_foreign_key "questions", "games"
   add_foreign_key "rounds", "games"

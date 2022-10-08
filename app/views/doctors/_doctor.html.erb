@@ -1,8 +1,8 @@
 <div data-controller="ajax-render">
   <div class="card__user">
     <div class="">
-      <%= link_to doctor_path(doctor) do %>
-        <p><%= doctor.full_name %></p>
+      <%= link_to doctor_path(doctor), class: 'link--white' do %>
+        <%= doctor.full_name %>
       <% end %>
       <p class="card__sub_info"><%= "#{doctor.city}" %></p>
     </div>

@@ -18,6 +18,14 @@ body {
   background-color: $white-pinky;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .wrong .is-valid {
   border-color: $pansy-purple;
 }
