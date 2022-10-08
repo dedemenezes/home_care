@@ -12,6 +12,14 @@ class ConsultationTest::ValidationTest < ActiveSupport::TestCase
     end
   end
 
+  def test_status_use_enums_pending_accepted_and_denied
+    assert_respond_to @consultation, :pending?
+    assert_respond_to @consultation, :accepted!
+    assert_respond_to @consultation, :accepted?
+    assert_respond_to @consultation, :denied!
+    assert_respond_to @consultation, :denied?
+  end
+
   def test_valid_with_valid_attributes
     @consultation.location = 'Rua Teste'
     @consultation.price = 10000

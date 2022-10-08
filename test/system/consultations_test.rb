@@ -6,6 +6,12 @@ class BookingsTest < ApplicationSystemTestCase
     login_as @dede
   end
 
+  test "signed in user can see own consultations" do
+    visit '/consultations'
+    assert_selector 'h1', text: 'Consultations'
+    assert_selector '.consultation', count: 1
+  end
+
   test 'signed in user can create a consultation' do
     visit "/doctors/#{users(:doc).id}"
     assert_equal 1, Consultation.all.size

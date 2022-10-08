@@ -6,6 +6,12 @@ class Consultation < ApplicationRecord
   validate :starting_at_overlap #, :discount_cannot_be_greater_than_total_value
   validate :starting_at_not_in_the_past #, :discount_cannot_be_greater_than_total_value
 
+  enum :status, {
+    pending: 0,
+    accepted: 1,
+    denied: 2
+  }
+
   def starting_at_not_in_the_past
     if starting_at.present? && starting_at < Date.today
       errors.add(:starting_at, "can't be in the past")
