@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import AjaxRenderController from "./ajax_render_controller"
 application.register("ajax-render", AjaxRenderController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import FormController from "./form_controller"
 application.register("form", FormController)
 
