@@ -1,0 +1,9 @@
+<h1>Consultations</h1>
+
+<% @consultations.each do |consultation| %>
+  <div class="consultation">
+    <p class="consultation__doctor">
+      <%= consultation.doctor.full_name %>
+    </p>
+  </div>
+<% end %>

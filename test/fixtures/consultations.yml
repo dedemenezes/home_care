@@ -6,3 +6,12 @@ consultation_one:
   starting_at: <%= DateTime.now.beginning_of_hour %>
   doctor_id: 1
   patient_id: 2
+
+consultation_one:
+  id: 2
+  status: 0
+  price: 10000
+  location: 'Brazil'
+  starting_at: <%= DateTime.now.beginning_of_hour + 1 %>
+  doctor_id: 1
+  patient_id: 3

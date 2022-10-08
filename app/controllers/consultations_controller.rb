@@ -1,4 +1,8 @@
 class ConsultationsController < ApplicationController
+  def index
+    @consultations = policy_scope(Consultation).where(patient: current_user)
+  end
+
   def create
     @patient = current_user
     @doctor = User.find(params[:user_id])
