@@ -4,19 +4,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :rounds, dependent: :destroy
+  has_many :user_answers, class_name: 'Answer', foreign_key: :user_answer_id
+  has_many :consultations_as_doctor, class_name: 'Consultation', foreign_key: :doctor_id
+  has_many :consultations_as_patient, class_name: 'Consultation', foreign_key: :patient_id
+
   validates :first_name, uniqueness: { scope: :last_name }
   validates :country, presence: true
 
   geocoded_by :address
   before_save :set_default_image_url
-  after_validation :geocode, if: :will_save_change_to_city?
-  after_validation :geocode, if: :will_save_change_to_street?
-  after_validation :geocode, if: :will_save_change_to_street_number?
-  after_validation :geocode, if: :will_save_change_to_country?
-  after_validation :geocode, if: :will_save_change_to_state?
 
-  has_many :rounds, dependent: :destroy
-  has_many :user_answers, class_name: 'Answer', foreign_key: :user_answer_id
+  %w[city street street_number country state].each do |att|
+    after_validation :geocode, if: "will_save_change_to_#{att}?".to_sym
+  end
 
   def right_answers_count
     sum = 0
