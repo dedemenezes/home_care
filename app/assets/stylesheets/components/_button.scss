@@ -3,11 +3,18 @@
   background-color: $pansy-purple;
   color: white;
   text-decoration: none;
+  border: 1px solid $pansy-purple;
 }
-
-.button:hover {
+.button {
+  border: 1px solid $pansy-purple;
+  background-color: $pansy-purple;
+  color: white;
+  text-decoration: none;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.button {
 }
 
 .button:active {

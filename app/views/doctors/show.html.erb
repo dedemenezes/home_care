@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-lg-7 align-self-start">
       <%= render 'profiles/header', user: @doctor %>
-      <%= simple_form_for [@doctor, @consultation], html: { data: { turbo: false } } do |f| %>
+      <%= simple_form_for [@doctor, @consultation], html: { data: { turbo: false }, class: 'mb-3' } do |f| %>
         <%= f.input :starting_at %>
-        <%= f.submit %>
+        <%= f.submit 'Book!', class: 'button' %>
       <% end %>
     </div>
   <%= render 'shared/map', marker: @marker  %>
